@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Hassan Advani | BSCS Student @ GU Tech</title>
+  <meta name="author" content="Muhammad Hassan Advani">
+  <meta name="description" content="Portfolio of Muhammad Hassan Advani, a BSCS student at GU Tech learning HTML, CSS, JavaScript, Python, C and C++.">
+  <meta name="keywords" content="Muhammad Hassan Advani, BSCS, GU Tech, portfolio, HTML, CSS, JavaScript, Python, C, C++">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bgfx" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+
+  <nav id="nav">
+    <div class="wrap nb">
+      <a href="#hero" class="logo gt" aria-label="Home">&lt;MHA.dev/&gt;</a>
+      <ul class="links" id="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div style="display:flex;gap:10px">
+        <button class="ib" id="theme" aria-label="Toggle dark or light theme">
+          <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="ib ham" id="ham" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="wrap hg">
+      <div>
+        <div class="badge glass"><span class="dot"></span>BSCS @ GU Tech · 2026–2030 · 1st Semester</div>
+        <div class="idrow">
+          <div class="av sm">
+            <div>
+              <span class="gt">MHA</span>
+              <!-- ⬇️ HERO PROFILE IMAGE — CHANGE src TO YOUR IMAGE FILE ⬇️ -->
+              <img src="photo.jpeg" alt="Muhammad Hassan Advani" onerror="this.remove()">
+              <!-- ⬆️ HERO PROFILE IMAGE ⬆️ -->
+            </div>
+          </div>
+          <div><div class="hi">Hi, I'm</div><h1 class="gt">Muhammad Hassan Advani</h1></div>
+        </div>
+        <div class="typ"><span id="typed"></span><i></i></div>
+        <p class="desc">I'm a BSCS student at GU Tech, building strong foundations in HTML, CSS, JavaScript, Python, C and C++. I'm still learning, and I'm working toward becoming a software engineer.</p>
+        <a href="#skills" class="btn pri">View My Skills</a><a href="#certificates" class="btn out">My Certificate</a>
+      </div>
+      <div class="term" aria-hidden="true">
+        <div class="th"><b style="background:#EF4444"></b><b style="background:#F59E0B"></b><b style="background:#10B981"></b><em>hassan@portfolio</em></div>
+        <div class="tb"><span class="l"><span class="k">const</span> student = {</span><span class="l">  name: <span class="s">'Muhammad Hassan Advani'</span>,</span><span class="l">  degree: <span class="s">'BSCS @ GU Tech (2026–2030)'</span>,</span><span class="l">  semester: <span class="s">'1st'</span>,</span><span class="l">  skills: [<span class="s">'HTML'</span>, <span class="s">'CSS'</span>, <span class="s">'JS'</span>, <span class="s">'Python'</span>, <span class="s">'C'</span>, <span class="s">'C++'</span>],</span><span class="l">  learning: <span class="b">true</span>,</span><span class="l">  goal: () <span class="k">=&gt;</span> <span class="s">'Software Engineer'</span></span><span class="l">};</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="wrap ag rv">
+      <div class="av lg">
+        <div>
+          <span class="gt">MHA</span>
+          <!-- ⬇️ ABOUT PROFILE IMAGE — CHANGE src TO YOUR IMAGE FILE ⬇️ -->
+          <img src="photo.jpeg" alt="Portrait of Muhammad Hassan Advani" onerror="this.remove()">
+          <!-- ⬆️ ABOUT PROFILE IMAGE ⬆️ -->
+        </div>
+      </div>
+      <div>
+        <h2 class="gt">The BSCS Student Behind the Code</h2>
+        <p>My journey started at Iqra Huffaz Boys School, continued at Fatmiyah Boys College, and now I'm in my 1st semester of BSCS at GU Tech (2026–2030).</p>
+        <p>I work with HTML, CSS, JavaScript, Python, C and C++. I'm not rushing to look advanced. I'm building strong foundations one language at a time.</p>
+        <p>Right now I'm focused on data structures, algorithms, and the habits I'll need to become a software engineer.</p>
+        <div class="stats">
+          <div class="glass stat"><strong class="gt">6+</strong><span>Programming Languages</span></div>
+          <div class="glass stat"><strong class="gt">3</strong><span>Educational Milestones</span></div>
+          <div class="glass stat"><strong class="gt">9</strong><span>Google Certificates</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sh rv"><h2 class="gt">Skills</h2><p>What I'm working with and how far along I am</p></div>
+      <div class="cg">
+        <div class="glass card rv"><h3><svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>Web Development</h3>
+          <div class="sk"><div><span>HTML5</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+          <div class="sk"><div><span>CSS3</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+          <div class="sk"><div><span>JavaScript</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+        </div>
+        <div class="glass card rv"><h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M13 15h4"/></svg>Programming Languages</h3>
+          <div class="sk"><div><span>Python</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+          <div class="sk"><div><span>C</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+          <div class="sk"><div><span>C++</span><span>72%</span></div><div class="bar"><i data-w="72"></i></div></div>
+        </div>
+        <div class="glass card rv"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>CS Fundamentals</h3>
+          <div class="sk"><div><span>Problem Solving</span><span>78%</span></div><div class="bar"><i data-w="78"></i></div></div>
+          <div class="sk"><div><span>OOP Concepts</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+          <div class="sk"><div><span>Logic Building</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        </div>
+        <div class="glass card rv"><h3><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.6-.6-2.6z"/></svg>Tools I Use</h3>
+          <div class="sk"><div><span>VS Code</span><span>90%</span></div><div class="bar"><i data-w="90"></i></div></div>
+          <div class="sk"><div><span>Dev-C++ / Code::Blocks</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+          <div class="sk"><div><span>Git &amp; GitHub</span><span>65%</span></div><div class="bar"><i data-w="65"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICATES ==================== -->
+  <section id="certificates">
+    <div class="wrap">
+      <div class="sh rv"><h2 class="gt">My Certificate</h2><p>A Professional Certificate from Google, earned through Coursera</p></div>
+      <div class="glass cert rv">
+        <div class="ci">
+          <div>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg>
+            <div>Add certificate image<br><small>cirtificate 1.png</small></div>
+          </div>
+          <!-- ⬇️ MAIN PROFESSIONAL CERTIFICATE IMAGE ⬇️ -->
+          <img src="cirtificate 1.png" alt="Google Digital Marketing and E-commerce Professional Certificate" onerror="this.remove()">
+          <!-- ⬆️ MAIN PROFESSIONAL CERTIFICATE IMAGE ⬆️ -->
+          <span class="ribbon">Professional Certificate</span>
+        </div>
+        <div class="cd">
+          <div class="ch"><div class="gm">G</div><div><h3>Google Digital Marketing &amp; E-commerce</h3><div class="sub">Professional Certificate · 7 Courses</div></div></div>
+          <div class="m"><span class="tag">Issuer: Google</span><span class="tag">Offered via Coursera</span><span class="tag">Completed: Dec 27, 2024</span></div>
+          <p>A seven-course program developed by Google with hands-on, practice-based assessments. It builds entry-level skills in digital marketing and e-commerce: attracting and engaging customers, social media, email marketing, marketing analytics, building online stores, and customer loyalty.</p>
+          <h4>Courses completed</h4>
+          <ul class="cl">
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Foundations of Digital Marketing and E-commerce</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Attract and Engage Customers with Digital Marketing</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>From Likes to Leads: Interact with Customers Online</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Think Outside the Inbox: Email Marketing</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Assess for Success: Marketing Analytics and Measurement</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Make the Sale: Build, Launch, and Manage E-commerce Stores</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Satisfaction Guaranteed: Develop Customer Loyalty Online</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sh rv" style="margin:70px 0 30px"><h2 class="gt">Course Certificates</h2><p>8 more certificates, each authorized by Google and offered through Coursera</p></div>
+      <!-- 8 course certificates are generated by JavaScript below -->
+      <div class="cgrid" id="cgrid"></div>
+    </div>
+  </section>
+
+  <!-- ==================== JOURNEY ==================== -->
+  <section id="journey">
+    <div class="wrap">
+      <div class="sh rv"><h2 class="gt">Education Journey</h2></div>
+      <div class="tl">
+        <div class="ti now rv"><div class="glass card"><small>2026 — 2030 · 1ST SEMESTER</small><h3>BSCS at GU TECH</h3><p>Currently in my 1st semester of a Bachelor of Science in Computer Science (2026–2030). Studying programming fundamentals, data structures, algorithms, databases, and software engineering.</p></div></div>
+        <div class="ti rv"><div class="glass card"><small>COMPLETED</small><h3>Intermediate at FATMIYAH BOYS COLLEGE</h3><p>Completed intermediate education with a strong foundation in mathematics, physics, and computer science.</p></div></div>
+        <div class="ti rv"><div class="glass card"><small>COMPLETED</small><h3>Matriculation at IQRA HUFFAZ BOYS SCHOOL</h3><p>Completed secondary education. First discovered a passion for computers and programming.</p></div></div>
+      </div>
+      <div class="sh rv" style="margin:70px 0 36px"><h2 class="gt">What I'm Learning</h2></div>
+      <div class="lg4">
+        <div class="glass lc rv"><div class="e">🧠</div><h3>Data Structures &amp; Algorithms</h3><span>IN PROGRESS</span></div>
+        <div class="glass lc rv"><div class="e">🌐</div><h3>Modern Web Development</h3><span>IN PROGRESS</span></div>
+        <div class="glass lc rv"><div class="e">🐍</div><h3>Python Projects</h3><span>ONGOING</span></div>
+        <div class="glass lc rv"><div class="e">⚙️</div><h3>C/C++ Practice</h3><span>ONGOING</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SUBJECTS ==================== -->
+  <section id="subjects">
+    <div class="wrap">
+      <div class="sh rv"><h2 class="gt">BSCS Subjects I'll Master</h2><p>The road ahead in my degree</p></div>
+      <div class="sg" id="sg"></div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sh rv"><h2 class="gt">Get In Touch</h2><p>Questions, advice, or collaboration? Send me a message.</p></div>
+      <div class="cg2">
+        <div class="rv">
+          <div class="ci2"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg><a href="mailto:hassanadvani08@gmail.com">hassanadvani08@gmail.com</a></div>
+          <div class="ci2"><svg viewBox="0 0 24 24"><path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg><span>Pakistan</span></div>
+          <div class="soc">
+            <a class="glass" href="https://github.com/Hassan123advani" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+            <a class="glass" href="https://www.linkedin.com/in/hassan-saqib-advani-a20560437/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+          </div>
+        </div>
+        <form class="glass rv" id="form" novalidate>
+          <div class="f"><label for="nm">Name</label><input id="nm" type="text" placeholder="Your name" autocomplete="name"><div class="err"></div></div>
+          <div class="f"><label for="em">Email</label><input id="em" type="email" placeholder="your@email.com" autocomplete="email"><div class="err"></div></div>
+          <div class="f"><label for="ms">Message</label><textarea id="ms" rows="5" placeholder="Write your message..."></textarea><div class="err"></div></div>
+          <button type="submit" class="btn pri" style="width:100%;margin:0">Send Message</button>
+          <div class="ok" id="ok" role="status">Thanks! Your message is ready to send.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Muhammad Hassan Advani · BSCS Student @ GU Tech</p>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
