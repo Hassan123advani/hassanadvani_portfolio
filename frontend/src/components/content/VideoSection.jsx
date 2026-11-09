@@ -76,7 +76,16 @@ function FilePlayer({ video, poster, onTime }) {
     };
     el.addEventListener('loadedmetadata', show);
     show();
-    return () => el.removeEventListener('loadedmetadata', show);
+    return () => {
+      el.removeEventListener('loadedmetadata', show);
+      // A removed <video> keeps downloading until it is garbage-collected, starving the new
+      // language version (and its captions) of connections. Release it explicitly.
+      if (!el.isConnected) {
+        el.pause();
+        el.removeAttribute('src');
+        el.load();
+      }
+    };
   }, [active]);
 
   const toggleMute = () => {
@@ -97,6 +106,13 @@ function FilePlayer({ video, poster, onTime }) {
     const el = ref.current;
     pendingResume.current = { t: el?.currentTime || 0, play: el ? !el.paused : playing, muted: el ? el.muted : muted };
     setActive(i);
+  };
+
+  // Chapter jump. If a language switch is still loading, update the position it will restore
+  // instead of letting the restore overwrite the jump.
+  const seek = (s) => {
+    if (pendingResume.current) pendingResume.current.t = s;
+    if (ref.current) ref.current.currentTime = s;
   };
 
   // Runs on the NEW element (React attaches it), so it can't miss the event like a late addEventListener could.
@@ -139,7 +155,7 @@ function FilePlayer({ video, poster, onTime }) {
           autoPausing.current = false;
         }}
         onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
-        onTimeUpdate={(e) => onTime?.(e.currentTarget.currentTime, (s) => (ref.current.currentTime = s))}
+        onTimeUpdate={(e) => onTime?.(e.currentTarget.currentTime, seek)}
         aria-label={video.title}
       >
         {current.captionsUrl && <track kind="captions" srcLang="en" label="English captions" src={current.captionsUrl} default />}
