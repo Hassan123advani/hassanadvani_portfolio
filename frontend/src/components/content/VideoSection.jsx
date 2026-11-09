@@ -89,20 +89,28 @@ function FilePlayer({ video, poster, onTime }) {
     }
   };
 
+  // Position / sound / play state to restore on the new <video> after a language switch.
+  const pendingResume = useRef(null);
+
   const switchTo = (i) => {
     if (i === active) return;
-    const t = ref.current?.currentTime || 0;
+    const el = ref.current;
+    pendingResume.current = { t: el?.currentTime || 0, play: el ? !el.paused : playing, muted: el ? el.muted : muted };
     setActive(i);
-    // keep position & mute state when switching language
-    requestAnimationFrame(() => {
-      const el = ref.current;
-      if (!el) return;
-      el.muted = muted;
-      el.addEventListener('loadedmetadata', () => {
-        el.currentTime = Math.min(t, el.duration - 0.5);
-        if (playing) el.play().catch(() => {});
-      }, { once: true });
-    });
+  };
+
+  // Runs on the NEW element (React attaches it), so it can't miss the event like a late addEventListener could.
+  const onLoadedMetadata = (e) => {
+    const el = e.currentTarget;
+    const resume = pendingResume.current;
+    if (!resume) return;
+    pendingResume.current = null;
+    el.muted = resume.muted;
+    el.currentTime = Math.min(resume.t, Math.max(0, el.duration - 0.5));
+    if (resume.play) {
+      userPaused.current = false;
+      el.play().catch(() => {});
+    }
   };
 
   return (
@@ -120,8 +128,11 @@ function FilePlayer({ video, poster, onTime }) {
         preload="metadata"
         // Captions from another origin (e.g. Cloudinary) only load with CORS enabled on the media element.
         crossOrigin={/^https?:/.test(current.captionsUrl || '') ? 'anonymous' : undefined}
-        onPlay={() => setPlaying(true)}
-        onPause={() => {
+        onLoadedMetadata={onLoadedMetadata}
+        onPlay={(e) => e.currentTarget.isConnected && setPlaying(true)}
+        onPause={(e) => {
+          // The browser pauses the old element when a language switch removes it: not the visitor's choice.
+          if (!e.currentTarget.isConnected) return;
           setPlaying(false);
           // A pause we didn't trigger ourselves is the visitor's choice: don't auto-resume it.
           if (!autoPausing.current) userPaused.current = true;
