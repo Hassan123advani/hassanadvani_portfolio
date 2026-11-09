@@ -1,5 +1,6 @@
 import { env, isConfigured } from '../config/env.js';
 import { escapeHtml } from '../utils/text.js';
+import { toMillis } from '../utils/serialize.js';
 
 /**
  * Email via the Resend HTTP API. RESEND_API_KEY is read only on the server
@@ -63,8 +64,9 @@ export async function sendViaResend({ to, subject, html, text, replyTo, idempote
 /** Header-safe single line (prevents line breaks sneaking into the subject). */
 const oneLine = (s = '') => String(s).replace(/[\r\n]+/g, ' ').trim();
 
+// Accepts a Date, ISO string, millis or a Firestore Timestamp (what a stored inquiry's createdAt is).
 export const formatKarachiTime = (d) =>
-  `${new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Asia/Karachi' }).format(new Date(d))} (PKT)`;
+  `${new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Asia/Karachi' }).format(new Date(toMillis(d) || Date.now()))} (PKT)`;
 
 const shell = (kicker, inner) => `<!doctype html><html><body style="margin:0;background:#f4f2ec;font-family:Segoe UI,Arial,sans-serif;color:#15160f">
 <div style="max-width:620px;margin:0 auto;padding:28px 18px">
