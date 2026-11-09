@@ -1,49 +1,35 @@
-# 👋 Hi, I'm Hassan Advani
+# Muhammad Hassan Advani — Portfolio
 
-### 💻 BSCS Student | Aspiring Software Developer | Web Development Enthusiast
+Full-stack personal portfolio with a hidden, role-based admin CMS.
 
-Welcome to my GitHub! I'm Hassan Advani, a Computer Science student passionate about programming, web development, and modern technologies. I enjoy building projects, solving problems, and continuously improving my technical skills.
+| Part | Stack |
+| --- | --- |
+| `frontend/` | React 18 + Vite, React Router, TipTap editor, Firebase Auth (admin only) |
+| `backend/` | Node.js + Express, Firebase Admin SDK (Firestore + Auth), Cloudinary signed uploads, Resend email + Claude AI auto-replies, deployable as Firebase Cloud Functions |
+| `docs/` | Architecture, setup guides, security model, video plan, status & TODO |
+| `scripts/` | Setup and verification scripts |
+| `_old_backup/` | The original static site, assets and project demos, preserved untouched |
 
-## 🚀 About Me
+## Quick start
 
-- 🎓 Pursuing a Bachelor's degree in Computer Science (BSCS).
-- 🌐 Interested in modern and responsive web development.
-- 💻 Practicing programming and building real-world projects.
-- 🤖 Exploring Artificial Intelligence and emerging technologies.
-- 📚 Always learning and improving my development skills.
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\setup.ps1   # installs deps, creates env files
+cd backend;  npm run dev     # http://localhost:4000
+cd frontend; npm run dev     # http://localhost:5173
+```
 
-## 🛠️ Skills & Technologies
+The public site works immediately with the bundled real content. The CMS, contact form and
+uploads need credentials — see **[docs/DEVELOPMENT_STATUS.md](docs/DEVELOPMENT_STATUS.md)** for exactly
+which values go where.
 
-- **Frontend Development:** HTML5, CSS3, JavaScript
-- **Programming Languages:** C, C++, Python
-- **Tools:** Git, GitHub, Visual Studio Code
-- **Areas of Interest:** Artificial Intelligence, Software Development, Problem Solving
+## Checks
 
-## 🌐 My Portfolio
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\verify.ps1   # backend tests, frontend tests, build
+```
 
-Check out my personal portfolio website to explore my work and projects.
+## Documentation
 
-🔗 **Live Portfolio:** https://hassanadvani-portfolio.vercel.app
-
-## 💼 Connect With Me
-
-- **GitHub:** [Hassan Advani](https://github.com/Hassan123advani)
-- **LinkedIn:** [Hassan Saqib](https://www.linkedin.com/in/hassan-saqib-a20560437)
-- **Portfolio Website:** [Visit My Portfolio](https://hassanadvani-portfolio.vercel.app)
-
-## 🎯 My Goals
-
-My goal is to become a skilled software developer by building practical applications, learning advanced technologies, and creating innovative solutions to real-world problems.
-
-## 📌 Current Focus
-
-- Improving web development skills
-- Building practical programming projects
-- Learning databases and backend development
-- Exploring Artificial Intelligence
-
----
-
-⭐ If you find my projects interesting, feel free to explore my repositories and star the projects you like!
-
-*“Learn continuously. Build creatively. Improve every day.”* 🚀
+Start with [docs/PROJECT_BLUEPRINT.md](docs/PROJECT_BLUEPRINT.md), then the setup guides:
+[Firebase](docs/FIREBASE_SETUP.md) · [Cloudinary](docs/CLOUDINARY_SETUP.md) · [Contact AI & email](docs/CONTACT_AUTOMATION.md) ·
+[Admin security](docs/ADMIN_SECURITY.md) · [Deployment](docs/IMPLEMENTATION_ROADMAP.md#phase-10--deployment).

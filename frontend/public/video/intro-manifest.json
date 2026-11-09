@@ -1,0 +1,83 @@
+{
+  "en": {
+    "lang": "en",
+    "voice": "en-US-AndrewMultilingualNeural",
+    "file": "intro-en.mp4",
+    "captions": "intro-en.en.vtt",
+    "duration": 54.91,
+    "bytes": 4664618,
+    "chapters": [
+      {
+        "time": "0:00",
+        "seconds": 0.0,
+        "label": "Introduction"
+      },
+      {
+        "time": "0:03",
+        "seconds": 3.41,
+        "label": "About & skills"
+      },
+      {
+        "time": "0:14",
+        "seconds": 14.98,
+        "label": "Services"
+      },
+      {
+        "time": "0:23",
+        "seconds": 23.09,
+        "label": "Projects"
+      },
+      {
+        "time": "0:36",
+        "seconds": 36.33,
+        "label": "Certificates"
+      },
+      {
+        "time": "0:42",
+        "seconds": 42.86,
+        "label": "Contact"
+      }
+    ]
+  },
+  "ur": {
+    "lang": "ur",
+    "voice": "ur-PK-AsadNeural",
+    "file": "intro-ur.mp4",
+    "captions": "intro-ur.en.vtt",
+    "duration": 54.86,
+    "bytes": 4578331,
+    "chapters": [
+      {
+        "time": "0:00",
+        "seconds": 0.0,
+        "label": "Introduction"
+      },
+      {
+        "time": "0:05",
+        "seconds": 5.45,
+        "label": "About & skills"
+      },
+      {
+        "time": "0:17",
+        "seconds": 17.98,
+        "label": "Services"
+      },
+      {
+        "time": "0:26",
+        "seconds": 26.52,
+        "label": "Projects"
+      },
+      {
+        "time": "0:37",
+        "seconds": 37.79,
+        "label": "Certificates"
+      },
+      {
+        "time": "0:41",
+        "seconds": 41.99,
+        "label": "Contact"
+      }
+    ]
+  },
+  "poster": "intro-poster.jpg"
+}

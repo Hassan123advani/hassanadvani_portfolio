@@ -1,0 +1,79 @@
+/* ------------------------------------------------------------------
+   Design tokens. Dark is the default; light overrides below.
+   Identity: night-shift ink + "signal" lime (carried over from the
+   original site) + a warm amber taken from the portrait's lights.
+------------------------------------------------------------------- */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0c0d10;
+  --bg-2: #101217;
+  --surface: #15171d;
+  --surface-2: #1c1f27;
+  --line: rgba(236, 234, 226, 0.09);
+  --line-2: rgba(236, 234, 226, 0.17);
+  --ink: #eceae2;
+  --ink-2: #c0bfb6;
+  --muted: #8d8f95;
+  --accent: #d6ff5c;
+  --accent-ink: #12140a;
+  --accent-text: #d6ff5c;
+  --accent-soft: rgba(214, 255, 92, 0.1);
+  --amber: #ffb35c;
+  --danger: #ff7a6b;
+  --danger-soft: rgba(255, 122, 107, 0.12);
+  --ok: #7fe0a8;
+  --ok-soft: rgba(127, 224, 168, 0.12);
+  --warn: #ffd166;
+  --grid: rgba(236, 234, 226, 0.04);
+  --shadow: 0 30px 70px -35px rgba(0, 0, 0, 0.75);
+  --shadow-sm: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --glass: rgba(12, 13, 16, 0.72);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f3f1ea;
+  --bg-2: #ebe8de;
+  --surface: #fbfaf6;
+  --surface-2: #f0ede4;
+  --line: rgba(21, 22, 15, 0.1);
+  --line-2: rgba(21, 22, 15, 0.2);
+  --ink: #15160f;
+  --ink-2: #3a3c33;
+  --muted: #676a5f;
+  --accent: #d6ff5c;
+  --accent-ink: #15160f;
+  --accent-text: #4b6500;
+  --accent-soft: rgba(126, 168, 0, 0.12);
+  --amber: #a85a08;
+  --danger: #b93a2c;
+  --danger-soft: rgba(185, 58, 44, 0.1);
+  --ok: #1d7f47;
+  --ok-soft: rgba(29, 127, 71, 0.1);
+  --warn: #9a6a00;
+  --grid: rgba(21, 22, 15, 0.05);
+  --shadow: 0 30px 70px -35px rgba(60, 55, 30, 0.35);
+  --shadow-sm: 0 8px 24px -14px rgba(60, 55, 30, 0.35);
+  --glass: rgba(243, 241, 234, 0.78);
+}
+
+:root {
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --container: 1200px;
+  --narrow: 740px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
+  --header-h: 72px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 160ms;
+  --t: 280ms;
+  --t-slow: 700ms;
+}

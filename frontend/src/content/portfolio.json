@@ -1,0 +1,582 @@
+{
+  "profile": {
+    "name": "Muhammad Hassan Advani",
+    "shortName": "Hassan",
+    "headline": "BSCS student & web developer",
+    "tagline": "Building useful things for the web.",
+    "intro": "I’m a BSCS student and developer in the making. I turn ideas into thoughtful, responsive web experiences while building strong foundations in computer science.",
+    "bio": [
+      "I’m currently studying for a Bachelor of Science in Computer Science (BSCS) at GU Tech. My education began at Iqra Huffaz Boys School and continued at Fatmiyah Boys College.",
+      "I enjoy building with HTML, CSS and JavaScript, and I’m also studying Python, C and C++. Each project helps me connect what I learn in class with practical problem solving.",
+      "My current focus is on programming fundamentals, data structures and algorithms as I work toward becoming a thoughtful software engineer. I’m also exploring artificial intelligence and learning databases and backend development."
+    ],
+    "location": "Karachi, Pakistan",
+    "email": "hassanadvani08@gmail.com",
+    "availability": "Open to learning and collaboration",
+    "avatar": {
+      "url": "/assets/profile.jpeg",
+      "alt": "Portrait of Muhammad Hassan Advani",
+      "publicId": "",
+      "caption": "",
+      "resourceType": "image"
+    },
+    "resume": null,
+    "socials": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Hassan123advani"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/hassan-saqib-advani-a20560437/"
+      },
+      {
+        "label": "Email",
+        "url": "mailto:hassanadvani08@gmail.com"
+      }
+    ],
+    "stats": [
+      {
+        "value": "6+",
+        "label": "Languages & technologies"
+      },
+      {
+        "value": "3",
+        "label": "Educational milestones"
+      },
+      {
+        "value": "9",
+        "label": "Google certificates"
+      }
+    ],
+    "skills": [
+      {
+        "group": "Web development",
+        "items": [
+          {
+            "name": "HTML5",
+            "level": 90
+          },
+          {
+            "name": "CSS3",
+            "level": 85
+          },
+          {
+            "name": "JavaScript",
+            "level": 75
+          }
+        ]
+      },
+      {
+        "group": "Programming languages",
+        "items": [
+          {
+            "name": "Python",
+            "level": 80
+          },
+          {
+            "name": "C",
+            "level": 75
+          },
+          {
+            "name": "C++",
+            "level": 72
+          }
+        ]
+      },
+      {
+        "group": "CS fundamentals",
+        "items": [
+          {
+            "name": "Problem solving",
+            "level": 78
+          },
+          {
+            "name": "OOP concepts",
+            "level": 75
+          },
+          {
+            "name": "Logic building",
+            "level": 80
+          }
+        ]
+      },
+      {
+        "group": "Tools",
+        "items": [
+          {
+            "name": "VS Code",
+            "level": 90
+          },
+          {
+            "name": "Dev-C++ / Code::Blocks",
+            "level": 80
+          },
+          {
+            "name": "Git & GitHub",
+            "level": 65
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "GU Tech",
+        "credential": "Bachelor of Science in Computer Science (BSCS)",
+        "period": "2026 — 2030",
+        "status": "In progress",
+        "description": "Coursework in programming fundamentals, data structures, algorithms, databases and software engineering."
+      },
+      {
+        "institution": "Fatmiyah Boys College",
+        "credential": "Intermediate",
+        "period": "",
+        "status": "Completed",
+        "description": "Completed intermediate education with a strong foundation in mathematics, physics and computer science."
+      },
+      {
+        "institution": "Iqra Huffaz Boys School",
+        "credential": "Matriculation",
+        "period": "",
+        "status": "Completed",
+        "description": "Completed secondary education, where I first discovered a passion for computers and programming."
+      }
+    ],
+    "experience": [],
+    "services": [
+      {
+        "title": "Responsive websites",
+        "description": "Clean, mobile-friendly pages built with semantic HTML, modern CSS and vanilla JavaScript — personal sites, portfolios and simple landing pages.",
+        "deliverables": [
+          "Mobile, tablet & desktop layouts",
+          "Accessible, semantic markup",
+          "Fast, dependency-light pages"
+        ]
+      },
+      {
+        "title": "Small browser tools",
+        "description": "Focused, single-purpose web tools like the planners and trackers in my projects, with data saved right in the browser.",
+        "deliverables": [
+          "Interactive JavaScript features",
+          "Local storage persistence",
+          "Simple, friendly interfaces"
+        ]
+      },
+      {
+        "title": "Front-end fixes & polish",
+        "description": "Help with layout bugs, responsiveness issues and visual polish on existing HTML/CSS/JavaScript pages.",
+        "deliverables": [
+          "Layout & responsiveness fixes",
+          "Styling clean-up",
+          "Clear notes on what changed"
+        ]
+      }
+    ],
+    "learning": [
+      {
+        "title": "Data structures & algorithms",
+        "status": "In progress"
+      },
+      {
+        "title": "Modern web development",
+        "status": "In progress"
+      },
+      {
+        "title": "Python projects",
+        "status": "Ongoing"
+      },
+      {
+        "title": "C / C++ practice",
+        "status": "Ongoing"
+      }
+    ],
+    "subjects": [
+      {
+        "title": "Programming Fundamentals",
+        "description": "C / C++ basics and how to think in code."
+      },
+      {
+        "title": "Object-Oriented Programming",
+        "description": "Classes, inheritance and clean design."
+      },
+      {
+        "title": "Data Structures & Algorithms",
+        "description": "Organizing data and solving problems fast."
+      },
+      {
+        "title": "Database Systems",
+        "description": "Storing and querying data with SQL."
+      },
+      {
+        "title": "Operating Systems",
+        "description": "Processes, memory and file systems."
+      },
+      {
+        "title": "Computer Networks",
+        "description": "How data moves across the internet."
+      },
+      {
+        "title": "Software Engineering",
+        "description": "Planning, building and testing software."
+      },
+      {
+        "title": "Web Technologies",
+        "description": "Building modern websites and web apps."
+      },
+      {
+        "title": "Discrete Mathematics",
+        "description": "Logic, sets and graphs for computing."
+      },
+      {
+        "title": "Linear Algebra & Calculus",
+        "description": "The math behind computing and graphics."
+      },
+      {
+        "title": "Digital Logic Design",
+        "description": "Gates, circuits and binary logic."
+      },
+      {
+        "title": "Computer Architecture",
+        "description": "How CPUs and memory really work."
+      }
+    ],
+    "video": {
+      "provider": "file",
+      "youtubeId": "",
+      "url": "/video/intro-en.mp4",
+      "captionsUrl": "/video/intro-en.en.vtt",
+      "poster": {
+        "url": "/video/intro-poster.jpg",
+        "alt": "Intro video: Hi, I’m Hassan. I build websites.",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "title": "Meet me in under a minute",
+      "description": "Who I am, what I build, my projects and certificates, and how to reach me. Voice-over in English or Urdu, with English captions.",
+      "chapters": [
+        {
+          "time": "0:00",
+          "label": "Introduction"
+        },
+        {
+          "time": "0:03",
+          "label": "About & skills"
+        },
+        {
+          "time": "0:14",
+          "label": "Services"
+        },
+        {
+          "time": "0:23",
+          "label": "Projects"
+        },
+        {
+          "time": "0:36",
+          "label": "Certificates"
+        },
+        {
+          "time": "0:42",
+          "label": "Contact"
+        }
+      ],
+      "versions": [
+        {
+          "label": "English",
+          "lang": "en",
+          "url": "/video/intro-en.mp4",
+          "captionsUrl": "/video/intro-en.en.vtt"
+        },
+        {
+          "label": "اردو",
+          "lang": "ur",
+          "url": "/video/intro-ur.mp4",
+          "captionsUrl": "/video/intro-ur.en.vtt"
+        }
+      ]
+    }
+  },
+  "site": {
+    "siteTitle": "Muhammad Hassan Advani",
+    "footerNote": "Currently studying BSCS at GU Tech.",
+    "announcement": "",
+    "contactEnabled": true,
+    "blogEnabled": true,
+    "showGithub": true,
+    "showTestimonials": true,
+    "postsPerPage": 9
+  },
+  "seo": {
+    "defaultTitle": "Muhammad Hassan Advani — BSCS student & web developer",
+    "titleTemplate": "%s · Hassan Advani",
+    "description": "Portfolio of Muhammad Hassan Advani, a BSCS student at GU Tech building thoughtful, responsive web experiences with HTML, CSS and JavaScript.",
+    "keywords": [
+      "Muhammad Hassan Advani",
+      "BSCS",
+      "GU Tech",
+      "portfolio",
+      "web developer",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
+      "C++",
+      "Karachi"
+    ],
+    "ogImage": {
+      "url": "/assets/profile.jpeg",
+      "alt": "Muhammad Hassan Advani",
+      "publicId": "",
+      "caption": "",
+      "resourceType": "image"
+    },
+    "twitterHandle": "",
+    "siteUrl": "https://hassanadvani-portfolio.vercel.app"
+  },
+  "projects": [
+    {
+      "title": "FocusFlow",
+      "slug": "focusflow",
+      "summary": "A focused task planner with a working Pomodoro timer, task states and browser storage.",
+      "description": "<p>FocusFlow is a calm, single-page task planner built to make room for deep work. It pairs a simple task list with a working Pomodoro timer so planning and focusing happen in the same place.</p><h3>What it does</h3><ul><li>Add, complete and remove tasks with clear task states</li><li>Run focus and break sessions with a Pomodoro timer</li><li>Keeps your tasks in the browser with Local Storage — no account needed</li></ul><h3>What I practised</h3><p>DOM manipulation, timers and intervals in JavaScript, persisting state with Local Storage, and building a clean responsive layout with CSS.</p>",
+      "coverImage": null,
+      "images": [],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Local Storage"
+      ],
+      "githubUrl": "",
+      "liveUrl": "/demos/focusflow/index.html",
+      "category": "Productivity",
+      "level": "Beginner",
+      "featured": true,
+      "status": "published",
+      "order": 1
+    },
+    {
+      "title": "BudgetWise",
+      "slug": "budgetwise",
+      "summary": "Track income and spending with category filters, monthly summaries and persistent transactions.",
+      "description": "<p>BudgetWise is a personal finance tracker that makes money a little clearer. Record income and expenses, filter by category and see a monthly summary at a glance.</p><h3>What it does</h3><ul><li>Add income and expense transactions with categories</li><li>Filter transactions and see monthly totals and savings</li><li>Visual summary chart of spending</li><li>Transactions persist in the browser</li></ul><h3>What I practised</h3><p>Working with arrays of data, filtering and aggregating values, rendering simple charts with HTML and CSS, and form handling in JavaScript.</p>",
+      "coverImage": null,
+      "images": [],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Charts"
+      ],
+      "githubUrl": "",
+      "liveUrl": "/demos/budgetwise/index.html",
+      "category": "Personal finance",
+      "level": "Intermediate",
+      "featured": true,
+      "status": "published",
+      "order": 2
+    },
+    {
+      "title": "CoursePilot",
+      "slug": "coursepilot",
+      "summary": "A practical student planner for assignment deadlines, course progress and recorded grades.",
+      "description": "<p>CoursePilot is a student planner built around a real semester: courses, upcoming deadlines, progress and grades in one place. Add your own courses and make it yours.</p><h3>What it does</h3><ul><li>Add courses and assignments with due dates</li><li>Track semester progress</li><li>Record grades per course</li><li>Everything is stored locally in your browser</li></ul><h3>What I practised</h3><p>Structuring related data, date handling, building reusable UI patterns and keeping a multi-section interface organised.</p>",
+      "coverImage": null,
+      "images": [],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Local Storage"
+      ],
+      "githubUrl": "",
+      "liveUrl": "/demos/coursepilot/index.html",
+      "category": "Student tools",
+      "level": "Intermediate",
+      "featured": true,
+      "status": "published",
+      "order": 3
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Google Digital Marketing & E-commerce",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "professional",
+      "issuedOn": "Dec 27, 2024",
+      "description": "A seven-course program developed by Google with hands-on, practice-based assessments, building entry-level skills in digital marketing and e-commerce: attracting and engaging customers, social media, email marketing, marketing analytics, building online stores and customer loyalty.",
+      "image": {
+        "url": "/assets/certificates/certificate-1.png",
+        "alt": "Google Digital Marketing and E-commerce Professional Certificate awarded to Muhammad Hassan Advani",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [
+        "Foundations of Digital Marketing and E-commerce",
+        "Attract and Engage Customers with Digital Marketing",
+        "From Likes to Leads: Interact with Customers Online",
+        "Think Outside the Inbox: Email Marketing",
+        "Assess for Success: Marketing Analytics and Measurement",
+        "Make the Sale: Build, Launch, and Manage E-commerce Stores",
+        "Satisfaction Guaranteed: Develop Customer Loyalty Online"
+      ],
+      "order": 0,
+      "status": "published"
+    },
+    {
+      "title": "Foundations of Digital Marketing and E-commerce",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "An introduction to digital marketing and e-commerce: how businesses reach customers online and the basics of selling on the web.",
+      "image": {
+        "url": "/assets/certificates/certificate-2.png",
+        "alt": "Foundations of Digital Marketing and E-commerce certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 1,
+      "status": "published"
+    },
+    {
+      "title": "Make the Sale: Build, Launch, and Manage E-commerce Stores",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "Setting up an online store, launching it and managing it day to day.",
+      "image": {
+        "url": "/assets/certificates/certificate-3.png",
+        "alt": "Make the Sale certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 2,
+      "status": "published"
+    },
+    {
+      "title": "Satisfaction Guaranteed: Develop Customer Loyalty Online",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "Building customer satisfaction and loyalty so people come back after their first purchase.",
+      "image": {
+        "url": "/assets/certificates/certificate-4.png",
+        "alt": "Satisfaction Guaranteed certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 3,
+      "status": "published"
+    },
+    {
+      "title": "Assess for Success: Marketing Analytics and Measurement",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "Measuring how marketing performs and using data to decide what to improve.",
+      "image": {
+        "url": "/assets/certificates/certificate-5.png",
+        "alt": "Assess for Success certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 4,
+      "status": "published"
+    },
+    {
+      "title": "From Likes to Leads: Interact with Customers Online",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "Using social media and online conversations to build relationships that turn attention into real leads.",
+      "image": {
+        "url": "/assets/certificates/certificate-6.png",
+        "alt": "From Likes to Leads certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 5,
+      "status": "published"
+    },
+    {
+      "title": "Think Outside the Inbox: Email Marketing",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "Planning and running email campaigns that reach the right people and get results.",
+      "image": {
+        "url": "/assets/certificates/certificate-7.png",
+        "alt": "Think Outside the Inbox certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 6,
+      "status": "published"
+    },
+    {
+      "title": "Attract and Engage Customers with Digital Marketing",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "How businesses draw customers in through digital channels and keep them interested once they arrive.",
+      "image": {
+        "url": "/assets/certificates/certificate-8.png",
+        "alt": "Attract and Engage Customers certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 7,
+      "status": "published"
+    },
+    {
+      "title": "Google AI Essentials",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "kind": "course",
+      "issuedOn": "Dec 27, 2024",
+      "description": "The basics of AI and how to use AI tools responsibly to work faster and smarter.",
+      "image": {
+        "url": "/assets/certificates/certificate-9.png",
+        "alt": "Google AI Essentials certificate",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
+      "credentialUrl": "",
+      "courses": [],
+      "order": 8,
+      "status": "published"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "backend",
+      "codebase": "portfolio",
+      "runtime": "nodejs22",
+      "ignore": ["node_modules", ".env.local", "test", "scripts", "secrets", "*.log"]
+    }
+  ]
+}

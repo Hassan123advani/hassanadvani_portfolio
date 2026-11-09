@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- Renders one 1920x1080 video frame: scene.html?scene=<id>&shots=<dir url>. Captured by render-frames.mjs. -->
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#0c0d10; --ink:#eceae2; --muted:#9a9ca2; --accent:#d6ff5c; --amber:#ffb35c; --line:rgba(236,234,226,.12); }
+  * { box-sizing:border-box; margin:0; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter, 'Segoe UI', sans-serif; }
+  .bg { position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 55% 60% at 80% 20%, rgba(255,179,92,.14), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 5% 95%, rgba(214,255,92,.10), transparent 60%),
+      repeating-linear-gradient(90deg, rgba(236,234,226,.035) 0 1px, transparent 1px 80px),
+      repeating-linear-gradient(0deg, rgba(236,234,226,.035) 0 1px, transparent 1px 80px); }
+  .brand { position:absolute; top:56px; left:96px; display:flex; align-items:center; gap:14px; font:700 30px 'Bricolage Grotesque'; letter-spacing:-.02em; }
+  .brand b { display:grid; place-items:center; width:52px; height:52px; border-radius:15px; background:var(--accent); color:#12140a; font-size:18px; }
+  .brand i { color:var(--accent); font-style:normal; }
+  .step { position:absolute; top:66px; right:96px; font:500 20px 'JetBrains Mono'; color:var(--muted); letter-spacing:.14em; }
+  /* split layout */
+  .copy { position:absolute; left:96px; top:250px; width:640px; }
+  .kicker { font:500 22px 'JetBrains Mono'; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:28px; }
+  h1 { font:700 92px/0.98 'Bricolage Grotesque'; letter-spacing:-.045em; margin-bottom:40px; }
+  h1 em { font-style:normal; color:var(--accent); }
+  ul { list-style:none; padding:0; display:grid; gap:20px; }
+  li { display:flex; align-items:center; gap:18px; font:500 32px Inter; color:var(--ink); }
+  li::before { content:''; width:12px; height:12px; border-radius:50%; background:var(--accent); flex:none; box-shadow:0 0 0 6px rgba(214,255,92,.15); }
+  .window { position:absolute; right:-40px; top:200px; width:1160px; border-radius:22px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 60px 120px -40px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.03); background:#15171d; transform:perspective(2400px) rotateY(-6deg); transform-origin:left center; }
+  .bar { height:46px; display:flex; align-items:center; gap:10px; padding:0 20px; border-bottom:1px solid var(--line); }
+  .bar i { width:13px; height:13px; border-radius:50%; background:#3a3d45; }
+  .bar i:nth-child(1){background:#ff7a6b} .bar i:nth-child(2){background:#ffd166} .bar i:nth-child(3){background:var(--accent)}
+  .bar span { margin-left:18px; padding:6px 18px; border-radius:99px; background:rgba(255,255,255,.05); font:500 17px 'JetBrains Mono'; color:var(--muted); }
+  .window img { display:block; width:100%; }
+  /* hero layout */
+  .hero .shot { position:absolute; inset:0; background-size:cover; background-position:center top; opacity:.12; filter:saturate(.8) blur(3px); }
+  .hero .veil { position:absolute; inset:0; background:linear-gradient(90deg, rgba(12,13,16,.96) 30%, rgba(12,13,16,.55)); }
+  .hero .copy { top:300px; width:1200px; }
+  .hero h1 { font-size:150px; }
+  .hero .photo { position:absolute; right:150px; top:210px; width:470px; height:560px; border-radius:36px; overflow:hidden; border:1px solid var(--line); box-shadow:0 60px 120px -40px rgba(0,0,0,.9); }
+  .hero .photo img { width:100%; height:100%; object-fit:cover; }
+  /* cta layout */
+  .cta .copy { width:900px; top:240px; }
+  .cta li { font-size:40px; }
+  .cta .window { width:900px; top:230px; right:-60px; }
+  .safe { position:absolute; left:0; right:0; bottom:0; height:180px; } /* kept clear for captions */
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div id="root"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  fetch('script.json').then((r) => r.json()).then((data) => {
+    const i = data.scenes.findIndex((s) => s.id === q.get('scene'));
+    const s = data.scenes[i];
+    const shots = q.get('shots');
+    const esc = (t) => String(t).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
+    const brand = `<div class="brand"><b>MHA</b><span>Hassan<i>.</i>dev</span></div><div class="step">${String(i + 1).padStart(2, '0')} / ${String(data.scenes.length).padStart(2, '0')}</div>`;
+    const bullets = (s.bullets || []).map((b) => `<li>${esc(b)}</li>`).join('');
+    const win = `<div class="window"><div class="bar"><i></i><i></i><i></i><span>${data.site}</span></div><img src="${shots}/${s.shot}.png"></div>`;
+    let html;
+    if (s.layout === 'hero') {
+      html = `<div class="hero"><div class="shot" style="background-image:url('${shots}/${s.shot}.png')"></div><div class="veil"></div>${brand}
+        <div class="copy"><p class="kicker">${esc(s.kicker)}</p><h1>${esc(s.title)}<br><em>${esc(s.accent)}</em></h1></div>
+        <div class="photo"><img src="${q.get('photo')}"></div></div>`;
+    } else {
+      html = `<div class="${s.layout || 'split'}">${brand}<div class="copy"><p class="kicker">${esc(s.kicker)}</p><h1>${esc(s.title)}</h1><ul>${bullets}</ul></div>${win}</div>`;
+    }
+    document.getElementById('root').innerHTML = html + '<div class="safe"></div>';
+    Promise.all([...document.images].map((im) => im.decode().catch(() => {}))).then(() => document.fonts.ready).then(() => (document.body.dataset.ready = '1'));
+  });
+</script>
+</body>
+</html>

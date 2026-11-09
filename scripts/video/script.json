@@ -1,0 +1,180 @@
+{
+  "_note": "Every fact here comes from frontend/src/content/portfolio.json. No pricing, timelines or years of experience. 'tts' is what the voice reads (spelled for pronunciation); 'caption' is the English on-screen caption.",
+  "site": "hassanadvani-portfolio.vercel.app",
+  "voices": {
+    "en": {
+      "voice": "en-US-AndrewMultilingualNeural",
+      "rate": "+8%"
+    },
+    "ur": {
+      "voice": "ur-PK-AsadNeural",
+      "rate": "+8%"
+    }
+  },
+  "scenes": [
+    {
+      "id": "hook",
+      "chapter": "Introduction",
+      "shot": "hero",
+      "layout": "hero",
+      "kicker": "Portfolio · Karachi",
+      "title": "Hi, I'm Hassan.",
+      "accent": "I build websites.",
+      "en": {
+        "tts": "Hi, I'm Hassan, and I build websites.",
+        "caption": "Hi, I'm Hassan, and I build websites."
+      },
+      "ur": {
+        "tts": "السلام علیکم! میں حسن ہوں، اور میں ویب سائٹس بناتا ہوں۔",
+        "caption": "Hi, I'm Hassan, and I build websites."
+      },
+      "roman": "Assalam-o-Alaikum! Main Hassan hoon, aur main websites banata hoon."
+    },
+    {
+      "id": "about",
+      "chapter": "About & skills",
+      "shot": "skills",
+      "kicker": "About me",
+      "title": "Muhammad Hassan Advani",
+      "bullets": [
+        "BSCS student · GU Tech, Karachi",
+        "HTML · CSS · JavaScript",
+        "Learning Python · C · C++"
+      ],
+      "en": {
+        "tts": "I'm Muhammad Hassan Advani, a computer science student at GU Tech, Karachi. I build with HTML, CSS and JavaScript, and I'm learning Python, C and C plus plus.",
+        "caption": "I'm Muhammad Hassan Advani, a computer science student at GU Tech, Karachi. I build with HTML, CSS and JavaScript, and I'm learning Python, C and C++."
+      },
+      "ur": {
+        "tts": "میرا نام محمد حسن ایڈوانی ہے، اور میں جی یو ٹیک کراچی میں کمپیوٹر سائنس کا طالب علم ہوں۔ میں HTML، CSS اور JavaScript سے کام کرتا ہوں، اور Python اور C plus plus سیکھ رہا ہوں۔",
+        "caption": "I'm Muhammad Hassan Advani, a computer science student at GU Tech, Karachi. I work with HTML, CSS and JavaScript, and I'm learning Python and C++."
+      },
+      "roman": "Mera naam Muhammad Hassan Advani hai, aur main GU Tech Karachi mein computer science ka student hoon. Main HTML, CSS aur JavaScript se kaam karta hoon, aur Python aur C++ seekh raha hoon."
+    },
+    {
+      "id": "services",
+      "chapter": "Services",
+      "shot": "services",
+      "kicker": "What I can do",
+      "title": "How I can help",
+      "bullets": [
+        "Responsive websites",
+        "Small browser tools",
+        "Front-end fixes & polish",
+        "Open to collaboration"
+      ],
+      "en": {
+        "tts": "I build responsive websites and small browser tools, and fix and polish existing sites. I'm open to collaboration too.",
+        "caption": "I build responsive websites and small browser tools, and fix and polish existing sites. I'm open to collaboration too."
+      },
+      "ur": {
+        "tts": "میں ویب سائٹس اور براؤزر ٹولز بناتا ہوں، اور پرانی سائٹس کو بہتر کرتا ہوں۔ مل کر کام کرنے کے لیے بھی تیار ہوں۔",
+        "caption": "I build websites and browser tools, and improve existing sites. I'm open to collaboration too."
+      },
+      "roman": "Main websites aur browser tools banata hoon, aur purani sites ko behtar karta hoon. Mil kar kaam karne ke liye bhi tayyar hoon."
+    },
+    {
+      "id": "focusflow",
+      "chapter": "Projects",
+      "shot": "focusflow",
+      "kicker": "Project 01 · Productivity",
+      "title": "FocusFlow",
+      "bullets": [
+        "Task planner + Pomodoro timer",
+        "HTML · CSS · JavaScript"
+      ],
+      "en": {
+        "tts": "My projects: FocusFlow, a task planner with a Pomodoro timer.",
+        "caption": "My projects: FocusFlow, a task planner with a Pomodoro timer."
+      },
+      "ur": {
+        "tts": "میرے پروجیکٹس: FocusFlow، پومودورو ٹائمر والا ٹاسک پلانر۔",
+        "caption": "My projects: FocusFlow, a task planner with a Pomodoro timer."
+      },
+      "roman": "Mere projects: FocusFlow, Pomodoro timer wala task planner."
+    },
+    {
+      "id": "budgetwise",
+      "chapter": "Projects",
+      "shot": "budgetwise",
+      "kicker": "Project 02 · Personal finance",
+      "title": "BudgetWise",
+      "bullets": [
+        "Income & spending tracker",
+        "Monthly summaries"
+      ],
+      "en": {
+        "tts": "BudgetWise, an income and spending tracker.",
+        "caption": "BudgetWise, an income and spending tracker."
+      },
+      "ur": {
+        "tts": "BudgetWise، آمدنی اور خرچ کا حساب۔",
+        "caption": "BudgetWise, an income and spending tracker."
+      },
+      "roman": "BudgetWise, aamdani aur kharch ka hisaab."
+    },
+    {
+      "id": "coursepilot",
+      "chapter": "Projects",
+      "shot": "coursepilot",
+      "kicker": "Project 03 · Student tools",
+      "title": "CoursePilot",
+      "bullets": [
+        "Deadlines, progress & grades",
+        "Built for students"
+      ],
+      "en": {
+        "tts": "And CoursePilot, a planner for student deadlines and grades.",
+        "caption": "And CoursePilot, a planner for student deadlines and grades."
+      },
+      "ur": {
+        "tts": "اور CoursePilot، طلبہ کی ڈیڈ لائنز اور گریڈز کا پلانر۔",
+        "caption": "And CoursePilot, a planner for student deadlines and grades."
+      },
+      "roman": "Aur CoursePilot, students ki deadlines aur grades ka planner."
+    },
+    {
+      "id": "certificates",
+      "chapter": "Certificates",
+      "shot": "certificates",
+      "kicker": "Continuous learning",
+      "title": "9 Google certificates",
+      "bullets": [
+        "Digital Marketing & E-commerce",
+        "Google AI Essentials",
+        "Completed on Coursera"
+      ],
+      "en": {
+        "tts": "I've also earned nine Google certificates on Coursera, including Google AI Essentials.",
+        "caption": "I've also earned nine Google certificates on Coursera, including Google AI Essentials."
+      },
+      "ur": {
+        "tts": "میں نے Coursera پر گوگل کے نو سرٹیفکیٹس بھی حاصل کیے ہیں۔",
+        "caption": "I've also earned nine Google certificates on Coursera."
+      },
+      "roman": "Maine Coursera par Google ke nau certificates bhi hasil kiye hain."
+    },
+    {
+      "id": "contact",
+      "chapter": "Contact",
+      "shot": "contact",
+      "layout": "cta",
+      "kicker": "Let's work together",
+      "title": "Get in touch",
+      "bullets": [
+        "hassanadvani08@gmail.com",
+        "github.com/Hassan123advani",
+        "Contact form on my website"
+      ],
+      "en": {
+        "tts": "Let's work together. Email hassan advani zero eight at gmail dot com, find me on GitHub as Hassan one two three Advani, or use the contact form on my website.",
+        "caption": "Let's work together. Email hassanadvani08@gmail.com, find me on GitHub as Hassan123advani, or use the contact form on my website."
+      },
+      "ur": {
+        "tts": "مل کر کام کریں؟ ای میل کریں: hassan advani zero eight at gmail dot com، GitHub پر Hassan one two three Advani، یا ویب سائٹ کا کانٹیکٹ فارم۔ شکریہ!",
+        "caption": "Let's work together? Email hassanadvani08@gmail.com, GitHub: Hassan123advani, or the contact form on my website. Thank you!"
+      },
+      "roman": "Mil kar kaam karein? Email kijiye: hassanadvani08 at gmail dot com, GitHub par Hassan123advani, ya website ka contact form. Shukriya!"
+    }
+  ]
+}

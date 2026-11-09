@@ -1,0 +1,115 @@
+rules_version = '2';
+
+// ---------------------------------------------------------------------------
+// Firestore Security Rules — portfolio-datbase
+//
+// Model:
+//   * ALL writes go through the backend API, which uses the Firebase Admin SDK
+//     (Admin SDK bypasses these rules) after verifying the caller's ID token,
+//     their admins/{uid} record, role and permissions.
+//   * Browsers can therefore NEVER write any document directly.
+//   * Anonymous visitors may only read published content whose publish date
+//     has passed, plus the public settings documents.
+//   * Signed-in, active admins may read the collections their permissions cover.
+// ---------------------------------------------------------------------------
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function adminPath() {
+      return /databases/$(database)/documents/admins/$(request.auth.uid);
+    }
+
+    function isAdmin() {
+      return signedIn() && exists(adminPath()) && get(adminPath()).data.active == true;
+    }
+
+    function isSuper() {
+      return isAdmin() && get(adminPath()).data.role == 'super_admin';
+    }
+
+    function can(permission) {
+      return isAdmin() && (
+        get(adminPath()).data.role == 'super_admin' ||
+        permission in get(adminPath()).data.permissions
+      );
+    }
+
+    function isPublished() {
+      return resource.data.status == 'published';
+    }
+
+    // Published AND the (optional) scheduled date has passed.
+    function isLive() {
+      return isPublished() && (
+        !('publishedAt' in resource.data) ||
+        resource.data.publishedAt == null ||
+        resource.data.publishedAt <= request.time
+      );
+    }
+
+    match /posts/{id} {
+      allow read: if isLive() || can('blog');
+      allow write: if false;
+    }
+
+    match /projects/{id} {
+      allow read: if isLive() || can('projects');
+      allow write: if false;
+    }
+
+    match /certificates/{id} {
+      allow read: if isPublished() || can('certificates');
+      allow write: if false;
+    }
+
+    match /testimonials/{id} {
+      allow read: if isPublished() || can('testimonials');
+      allow write: if false;
+    }
+
+    match /categories/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /tags/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /settings/{key} {
+      allow read: if key in ['profile', 'site', 'seo'];
+      allow write: if false;
+    }
+
+    match /media/{id} {
+      allow read: if can('media');
+      allow write: if false;
+    }
+
+    match /messages/{id} {
+      allow read: if can('messages');
+      allow write: if false;
+    }
+
+    match /admins/{uid} {
+      // Admins can read their own record; only super admins can read all.
+      allow read: if signedIn() && (request.auth.uid == uid || isSuper());
+      allow write: if false;
+    }
+
+    match /activityLogs/{id} {
+      allow read: if can('activity');
+      allow write: if false;
+    }
+
+    // Deny everything else by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

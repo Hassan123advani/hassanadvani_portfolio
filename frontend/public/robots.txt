@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hassanadvani-portfolio.vercel.app/sitemap.xml
