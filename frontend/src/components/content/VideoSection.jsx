@@ -67,6 +67,15 @@ function FilePlayer({ video, poster, onTime }) {
     return () => io.disconnect();
   }, [active]);
 
+  // Captions are ~1 KB and HTTP-cacheable: warm them for every language up front, so after a
+  // switch the <track> loads from cache instead of queueing behind the new video download.
+  const captionUrls = versions.map((v) => v.captionsUrl).filter(Boolean).join('|');
+  useEffect(() => {
+    captionUrls.split('|').filter(Boolean).forEach((url) => {
+      fetch(url, /^https?:/.test(url) ? { mode: 'cors' } : undefined).catch(() => {});
+    });
+  }, [captionUrls]);
+
   // Make the default captions track visible (some browsers ignore `default` until load).
   useEffect(() => {
     const el = ref.current;
