@@ -339,7 +339,13 @@
       "slug": "focusflow",
       "summary": "A focused task planner with a working Pomodoro timer, task states and browser storage.",
       "description": "<p>FocusFlow is a calm, single-page task planner built to make room for deep work. It pairs a simple task list with a working Pomodoro timer so planning and focusing happen in the same place.</p><h3>What it does</h3><ul><li>Add, complete and remove tasks with clear task states</li><li>Run focus and break sessions with a Pomodoro timer</li><li>Keeps your tasks in the browser with Local Storage — no account needed</li></ul><h3>What I practised</h3><p>DOM manipulation, timers and intervals in JavaScript, persisting state with Local Storage, and building a clean responsive layout with CSS.</p>",
-      "coverImage": null,
+      "coverImage": {
+        "url": "/assets/projects/focusflow.jpg",
+        "alt": "FocusFlow task planner with Pomodoro timer (screenshot of the live demo)",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
       "images": [],
       "techStack": [
         "HTML",
@@ -360,7 +366,13 @@
       "slug": "budgetwise",
       "summary": "Track income and spending with category filters, monthly summaries and persistent transactions.",
       "description": "<p>BudgetWise is a personal finance tracker that makes money a little clearer. Record income and expenses, filter by category and see a monthly summary at a glance.</p><h3>What it does</h3><ul><li>Add income and expense transactions with categories</li><li>Filter transactions and see monthly totals and savings</li><li>Visual summary chart of spending</li><li>Transactions persist in the browser</li></ul><h3>What I practised</h3><p>Working with arrays of data, filtering and aggregating values, rendering simple charts with HTML and CSS, and form handling in JavaScript.</p>",
-      "coverImage": null,
+      "coverImage": {
+        "url": "/assets/projects/budgetwise.jpg",
+        "alt": "BudgetWise monthly overview with income, expenses and balance (screenshot of the live demo)",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
       "images": [],
       "techStack": [
         "HTML",
@@ -381,7 +393,13 @@
       "slug": "coursepilot",
       "summary": "A practical student planner for assignment deadlines, course progress and recorded grades.",
       "description": "<p>CoursePilot is a student planner built around a real semester: courses, upcoming deadlines, progress and grades in one place. Add your own courses and make it yours.</p><h3>What it does</h3><ul><li>Add courses and assignments with due dates</li><li>Track semester progress</li><li>Record grades per course</li><li>Everything is stored locally in your browser</li></ul><h3>What I practised</h3><p>Structuring related data, date handling, building reusable UI patterns and keeping a multi-section interface organised.</p>",
-      "coverImage": null,
+      "coverImage": {
+        "url": "/assets/projects/coursepilot.jpg",
+        "alt": "CoursePilot student workspace with assignment planner and course progress (screenshot of the live demo)",
+        "publicId": "",
+        "caption": "",
+        "resourceType": "image"
+      },
       "images": [],
       "techStack": [
         "HTML",
