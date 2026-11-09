@@ -10,6 +10,7 @@ import { ah, badRequest, notFound } from '../utils/errors.js';
 import { docToJSON, plain, toMillis } from '../utils/serialize.js';
 import { slugify } from '../utils/text.js';
 import { env } from '../config/env.js';
+import { waitUntil } from '@vercel/functions';
 
 const r = Router();
 const db = () => services.db();
@@ -191,10 +192,14 @@ r.post(
       userAgent: String(req.get('user-agent') || '').slice(0, 300),
     });
 
-    // Deployed: the Firestore onCreate trigger runs the pipeline (reliable, retried).
-    // Locally: run it in the background so the visitor isn't kept waiting.
+    // Cloud Functions: the Firestore onCreate trigger runs the pipeline (reliable, retried).
+    // Locally and on Vercel: run it in the background so the visitor isn't kept waiting.
+    // On Vercel, waitUntil keeps the function alive until it finishes (it is frozen otherwise).
     if (!env.onGoogleCloud && env.inlineProcessing) {
-      setImmediate(() => processInquiry(id).catch((err) => console.error('[contact] pipeline error:', err.message)));
+      const job = new Promise((resolve) => setImmediate(resolve))
+        .then(() => processInquiry(id))
+        .catch((err) => console.error('[contact] pipeline error:', err.message));
+      if (process.env.VERCEL) waitUntil(job);
     }
     res.status(201).json({ ok: true, conversationId, autoReply: !spam && isConfigured.visitorEmail() });
   }),

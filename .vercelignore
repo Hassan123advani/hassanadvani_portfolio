@@ -1,5 +1,5 @@
-# Only the frontend is built and deployed on this Vercel project.
-# Never upload secrets or unrelated folders to Vercel.
+# Uploaded to Vercel: frontend/ (static site) + api/ and backend/ (serverless API).
+# Never upload secrets, tests or unrelated folders.
 .env
 .env.*
 **/.env
@@ -8,7 +8,9 @@
 *.pem
 **/*service-account*.json
 **/firebase-adminsdk*.json
-backend/
+backend/secrets/
+backend/test/
+backend/scripts/
 _old_backup/
 docs/
 scripts/
