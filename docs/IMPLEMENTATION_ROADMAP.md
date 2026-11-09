@@ -25,7 +25,7 @@ Nothing has been deployed or pushed.
 ### Frontend (Vercel — your current host)
 - Root directory `frontend`, framework Vite, build `npm run build`, output `dist`.
 - Environment: `VITE_API_URL=https://<backend-url>`, all `VITE_FIREBASE_*`, `VITE_SITE_URL`, `VITE_ADMIN_PATH`.
-- `vercel.json` already handles SPA routing and security headers. To serve the sitemap on your domain add:
+- The repo-root `vercel.json` (Root Directory stays `.`) builds `frontend/` (`npm ci && npm run build` → `frontend/dist`) and handles SPA routing, security headers, caption MIME types and caching. `.vercelignore` keeps `backend/`, docs and all `.env*` files out of uploads. To serve the sitemap on your domain add:
   `{ "source": "/sitemap.xml", "destination": "https://<backend-url>/sitemap.xml" }` as the **first** rewrite.
 - Update `public/robots.txt` sitemap URL if the domain changes.
 
