@@ -7,12 +7,17 @@ import Image from '@tiptap/extension-image';
 import Youtube from '@tiptap/extension-youtube';
 import Underline from '@tiptap/extension-underline';
 import Placeholder from '@tiptap/extension-placeholder';
+import Table from '@tiptap/extension-table';
+import TableRow from '@tiptap/extension-table-row';
+import TableHeader from '@tiptap/extension-table-header';
+import TableCell from '@tiptap/extension-table-cell';
 import Icon from '../../components/ui/Icon.jsx';
 import { Modal, useToast } from './Feedback.jsx';
 import { LibraryModal } from './MediaField.jsx';
 import { useAuth } from '../AuthContext.jsx';
 import { LIMITS, uploadFile } from '../lib/upload.js';
 import { youtubeId } from '../../lib/format.js';
+import { CODE_LANGUAGES } from '../../lib/writing.js';
 
 /** A caption paragraph (rendered as <p class="caption">) for images and videos. */
 const Caption = Node.create({
@@ -80,7 +85,11 @@ export default function RichEditor({ value, onChange, folder = 'posts', placehol
 
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ heading: { levels: [2, 3, 4] } }),
+      StarterKit.configure({ heading: { levels: [2, 3, 4] }, codeBlock: { languageClassPrefix: 'language-', HTMLAttributes: { spellcheck: 'false' } } }),
+      Table.configure({ resizable: false }),
+      TableRow,
+      TableHeader,
+      TableCell,
       Underline,
       Caption,
       Link.configure({ openOnClick: false, autolink: true, protocols: ['https', 'http', 'mailto'] }),
@@ -187,6 +196,9 @@ export default function RichEditor({ value, onChange, folder = 'posts', placehol
         <Btn label="Divider" onClick={() => chain().setHorizontalRule().run()}>
           —
         </Btn>
+        <Btn label="Insert table" active={is('table')} onClick={() => chain().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}>
+          <Icon name="grid" size={15} />
+        </Btn>
         <span className="rte__sep" />
         <Btn label="Link" active={is('link')} onClick={() => setDialog('link')}>
           <Icon name="link" size={15} />
@@ -216,6 +228,37 @@ export default function RichEditor({ value, onChange, folder = 'posts', placehol
           ↷
         </Btn>
       </div>
+      {(is('codeBlock') || is('table')) && (
+        <div className="rte__context" role="toolbar" aria-label={is('codeBlock') ? 'Code block options' : 'Table options'}>
+          {is('codeBlock') && (
+            <label className="rte__context-field">
+              <span className="muted small">Language</span>
+              <select
+                className="rte__select"
+                value={editor.getAttributes('codeBlock').language || ''}
+                onChange={(e) => chain().updateAttributes('codeBlock', { language: e.target.value || null }).run()}
+              >
+                {CODE_LANGUAGES.map((l) => (
+                  <option key={l.value} value={l.value}>
+                    {l.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          {is('table') && (
+            <>
+              <span className="muted small">Table</span>
+              <button type="button" className="btn btn--text btn--sm" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().addRowAfter().run()}>+ Row</button>
+              <button type="button" className="btn btn--text btn--sm" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().addColumnAfter().run()}>+ Column</button>
+              <button type="button" className="btn btn--text btn--sm" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().deleteRow().run()}>− Row</button>
+              <button type="button" className="btn btn--text btn--sm" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().deleteColumn().run()}>− Column</button>
+              <button type="button" className="btn btn--text btn--sm" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().toggleHeaderRow().run()}>Header row</button>
+              <button type="button" className="btn btn--text btn--sm danger-text" onMouseDown={(e) => e.preventDefault()} onClick={() => chain().deleteTable().run()}>Delete table</button>
+            </>
+          )}
+        </div>
+      )}
       <EditorContent editor={editor} className="rte__content prose" />
       <div className="rte__foot mono">
         {words} words · ~{Math.max(1, Math.round(words / 220))} min read

@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             react: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
             firebase: ['firebase/app', 'firebase/auth'],
-            editor: ['@tiptap/react', '@tiptap/starter-kit', '@tiptap/extension-link', '@tiptap/extension-image', '@tiptap/extension-youtube', '@tiptap/extension-placeholder', '@tiptap/extension-underline'],
+            editor: ['@tiptap/react', '@tiptap/starter-kit', '@tiptap/extension-link', '@tiptap/extension-image', '@tiptap/extension-youtube', '@tiptap/extension-placeholder', '@tiptap/extension-underline', '@tiptap/extension-table', '@tiptap/extension-table-row', '@tiptap/extension-table-header', '@tiptap/extension-table-cell'],
           },
         },
       },

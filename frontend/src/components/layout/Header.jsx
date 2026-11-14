@@ -7,7 +7,7 @@ import { useSite } from '../../context/SiteContext.jsx';
 export const NAV = [
   { to: '/projects', label: 'Work' },
   { to: '/about', label: 'About' },
-  { to: '/blog', label: 'Writing', flag: 'blogEnabled' },
+  { to: '/writing', label: 'Writing', flag: 'blogEnabled' },
   { to: '/certificates', label: 'Certificates' },
   { to: '/github', label: 'GitHub', flag: 'showGithub' },
   { to: '/services', label: 'Hire me' },

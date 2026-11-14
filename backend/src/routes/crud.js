@@ -35,7 +35,7 @@ export function applyPublishing(data, existing) {
  * Generic admin CRUD router for a Firestore collection.
  * Every write is validated, permission-checked and recorded in the activity log.
  */
-export function crudRouter({ collection, permission, readPermissions = [], schema, label, slugFrom, publishable, prepare }) {
+export function crudRouter({ collection, permission, readPermissions = [], schema, label, slugFrom, publishable, prepare, preserve = [] }) {
   const r = Router();
   const canRead = (req, _res, next) =>
     [permission, ...readPermissions].some((p) => hasPermission(req.admin, p)) ? next() : next(forbidden());
@@ -92,7 +92,9 @@ export function crudRouter({ collection, permission, readPermissions = [], schem
       const current = await ref.get();
       if (!current.exists) throw notFound(`${label} not found`);
       const data = await build(req.body, current.data(), req.params.id);
-      await ref.set({ ...data, createdAt: current.data().createdAt || new Date(), createdBy: current.data().createdBy || null, updatedAt: new Date(), updatedBy: req.admin.uid });
+      // Server-managed fields (e.g. view counters) are never taken from the request and must survive a save.
+      const kept = Object.fromEntries(preserve.filter((k) => current.data()[k] !== undefined).map((k) => [k, current.data()[k]]));
+      await ref.set({ ...data, ...kept, createdAt: current.data().createdAt || new Date(), createdBy: current.data().createdBy || null, updatedAt: new Date(), updatedBy: req.admin.uid });
       const before = current.data();
       const action =
         publishable && before.status !== data.status

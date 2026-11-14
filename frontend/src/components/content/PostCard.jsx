@@ -5,7 +5,7 @@ import { cdn, formatDate } from '../../lib/format.js';
 export default function PostCard({ post, index = 0, featured = false }) {
   return (
     <Reveal as="article" className={`post-card ${featured ? 'post-card--featured' : ''}`} delay={(index % 3) * 70}>
-      <Link to={`/blog/${post.slug}`} className="post-card__link">
+      <Link to={`/writing/${post.slug}`} className="post-card__link">
         <div className="post-card__media">
           {post.coverImage?.url ? (
             <img src={cdn(post.coverImage.url, { w: featured ? 1100 : 700, h: featured ? 620 : 420 })} alt={post.coverImage.alt || ''} loading="lazy" />

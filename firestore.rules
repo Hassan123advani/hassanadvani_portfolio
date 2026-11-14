@@ -102,6 +102,25 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Newsletter addresses are personal data: only admins with inbox access.
+    // Visitors subscribe through the API (validated, de-duplicated, rate limited).
+    match /newsletter_subscribers/{id} {
+      allow read: if can('messages');
+      allow write: if false;
+    }
+
+    // Daily view totals per article. Written only by the API's view endpoint,
+    // so visitors can never set or inflate counts directly.
+    match /article_analytics/{id} {
+      allow read: if can('blog');
+      allow write: if false;
+    }
+
+    // Short-lived "already counted" markers for view de-duplication. Server only.
+    match /postViews/{id} {
+      allow read, write: if false;
+    }
+
     match /activityLogs/{id} {
       allow read: if can('activity');
       allow write: if false;

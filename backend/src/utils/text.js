@@ -31,6 +31,7 @@ export function sanitizeRichText(html = '') {
     allowedTags: [
       'p', 'h2', 'h3', 'h4', 'strong', 'b', 'em', 'i', 's', 'u', 'code', 'pre', 'blockquote',
       'ul', 'ol', 'li', 'a', 'img', 'figure', 'figcaption', 'hr', 'br', 'div', 'iframe', 'span',
+      'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'colgroup', 'col', 'caption',
     ],
     allowedAttributes: {
       a: ['href', 'target', 'rel', 'title'],
@@ -40,6 +41,9 @@ export function sanitizeRichText(html = '') {
       p: ['class'],
       pre: ['class'],
       code: ['class'],
+      th: ['colspan', 'rowspan', 'scope'],
+      td: ['colspan', 'rowspan'],
+      col: ['span'],
     },
     allowedClasses: {
       p: ['caption'],

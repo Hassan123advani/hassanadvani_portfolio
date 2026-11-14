@@ -1,15 +1,16 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './AuthContext.jsx';
 import { ConfirmProvider, NoAccess, ToastProvider } from './components/Feedback.jsx';
 import AdminLayout from './AdminLayout.jsx';
 import Login from './pages/Login.jsx';
 import { PageLoader, ErrorState } from '../components/ui/States.jsx';
+import { ADMIN_PATH } from '../lib/config.js';
 import './admin.css';
 
 const Dashboard = lazy(() => import('./pages/Dashboard.jsx'));
-const Posts = lazy(() => import('./pages/Posts.jsx'));
+const WritingDashboard = lazy(() => import('./pages/WritingDashboard.jsx'));
 const PostEditor = lazy(() => import('./pages/PostEditor.jsx'));
 const Projects = lazy(() => import('./pages/Projects.jsx'));
 const ProjectEditor = lazy(() => import('./pages/ProjectEditor.jsx'));
@@ -31,6 +32,12 @@ function Guard({ perm, superOnly, children }) {
   return children;
 }
 
+/** Old /posts admin URLs now live under /writing. */
+function PostsRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`${ADMIN_PATH}/writing${id ? `/${id}` : ''}`} replace />;
+}
+
 function Gate() {
   const auth = useAuth();
   if (auth.status === 'loading') return <PageLoader />;
@@ -50,9 +57,11 @@ function Gate() {
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route index element={<Dashboard />} />
-          <Route path="posts" element={<Guard perm="blog"><Posts /></Guard>} />
-          <Route path="posts/new" element={<Guard perm="blog"><PostEditor /></Guard>} />
-          <Route path="posts/:id" element={<Guard perm="blog"><PostEditor /></Guard>} />
+          <Route path="writing" element={<Guard perm="blog"><WritingDashboard /></Guard>} />
+          <Route path="writing/new" element={<Guard perm="blog"><PostEditor /></Guard>} />
+          <Route path="writing/:id" element={<Guard perm="blog"><PostEditor /></Guard>} />
+          <Route path="posts" element={<PostsRedirect />} />
+          <Route path="posts/:id" element={<PostsRedirect />} />
           <Route path="projects" element={<Guard perm="projects"><Projects /></Guard>} />
           <Route path="projects/new" element={<Guard perm="projects"><ProjectEditor /></Guard>} />
           <Route path="projects/:id" element={<Guard perm="projects"><ProjectEditor /></Guard>} />

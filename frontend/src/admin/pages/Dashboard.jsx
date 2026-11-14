@@ -80,7 +80,7 @@ export default function Dashboard() {
         actions={
           <>
             {can('blog') && (
-              <Link to={p('posts/new')} className="btn btn--primary btn--sm">
+              <Link to={p('writing/new')} className="btn btn--primary btn--sm">
                 <Icon name="plus" size={15} /> New article
               </Link>
             )}
@@ -112,7 +112,7 @@ export default function Dashboard() {
         <>
           {isSuper && data.projects.total === 0 && data.certificates.total === 0 && <StarterImport onDone={reload} />}
           <div className="a-stats">
-            {can('blog') && <Stat icon="book" label="Articles" value={data.posts.total} sub={`${data.posts.published} live · ${data.posts.draft} drafts · ${data.posts.scheduled} scheduled`} to={p('posts')} />}
+            {can('blog') && <Stat icon="book" label="Articles" value={data.posts.total} sub={`${data.posts.published} live · ${data.posts.draft} drafts · ${data.posts.scheduled} scheduled`} to={p('writing')} />}
             {can('projects') && <Stat icon="code" label="Projects" value={data.projects.total} sub={`${data.projects.published} live · ${data.projects.draft} drafts`} to={p('projects')} />}
             {can('messages') && <Stat icon="inbox" label="Unread messages" value={data.messages.unread} sub={`${data.messages.total} total`} to={p('messages')} />}
             {can('media') && <Stat icon="image" label="Media files" value={data.media.total} to={p('media')} />}

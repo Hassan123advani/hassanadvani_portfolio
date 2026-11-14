@@ -414,6 +414,113 @@
       "featured": true,
       "status": "published",
       "order": 3
+    },
+    {
+      "title": "AH Clothing Hub",
+      "slug": "ah-clothing-hub",
+      "summary": "A live online clothing store for Pakistan — men, women and unisex collections, search, wishlist and cash-on-delivery ordering.",
+      "description": "<p>AH Clothing Hub is a real, deployed e-commerce store based in Karachi that delivers across Pakistan. It pairs classic eastern elegance with clean, modern cuts and is built to feel like a premium fashion brand.</p><h3>What it does</h3><ul><li>Shop by category — Men, Women and Unisex wear, New In and Sale</li><li>Product search, product detail pages, quick add and wishlist</li><li>Seasonal hero slideshow, new arrivals, featured and on-sale sections</li><li>Customer accounts, order tracking, returns &amp; exchange and FAQ pages</li><li>Cash on Delivery, JazzCash and EasyPaisa payments; free delivery above Rs. 5,000</li><li>WhatsApp chat and a newsletter sign-up</li></ul><h3>What I practised</h3><p>Building a production storefront with Next.js, optimised images served from Cloudinary, deployment on Vercel, and designing a shopping experience for local payment and delivery needs.</p>",
+      "coverImage": {
+        "url": "https://res.cloudinary.com/js8eyyz5/image/upload/v1794646702/portfolio/projects/ahclothinghub.png",
+        "publicId": "portfolio/projects/ahclothinghub",
+        "alt": "AH Clothing Hub storefront home page with winter collection hero (screenshot of the live site)",
+        "caption": "",
+        "width": 1440,
+        "height": 960,
+        "resourceType": "image"
+      },
+      "images": [],
+      "techStack": [
+        "Next.js",
+        "React",
+        "Cloudinary",
+        "Vercel"
+      ],
+      "githubUrl": "",
+      "liveUrl": "https://ahclothinghub.vercel.app",
+      "category": "E-commerce",
+      "level": "Advanced",
+      "featured": true,
+      "status": "published",
+      "order": 4
+    },
+    {
+      "title": "GU TECH LMS Portal",
+      "slug": "gu-tech-lms-portal",
+      "summary": "A full-stack Learning Management System with courses, assignments, timed quizzes, grading and role-based access.",
+      "description": "<p>GU TECH LMS is a responsive internal Learning Management System. Authenticated operations run through a server API, PostgreSQL row level security protects the data, and Supabase Storage keeps course materials private.</p><h3>What it does</h3><ul><li>Admin, teacher and student roles with admin-approved student registration</li><li>Courses, modules, lessons and private resources</li><li>Assignments, submissions, grading and CSV gradebook export</li><li>One-attempt timed quizzes scored on the server</li><li>Announcements, marks, classroom chat, complaints and profile management</li><li>Audit records, rate limits and password recovery</li></ul><h3>What I practised</h3><p>Designing a secure full-stack app: React + Vite front end, Node.js/Express API with authorization middleware, Supabase Auth, PostgreSQL migrations and row level security policies.</p>",
+      "coverImage": null,
+      "images": [],
+      "techStack": [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "Supabase",
+        "PostgreSQL"
+      ],
+      "githubUrl": "https://github.com/Hassan123advani/LMS-Portal-GU-tech",
+      "liveUrl": "",
+      "category": "Education",
+      "level": "Advanced",
+      "featured": true,
+      "status": "published",
+      "order": 5
+    },
+    {
+      "title": "Periodic Table",
+      "slug": "periodic-table",
+      "summary": "The full periodic table of elements laid out with pure HTML and CSS, colour-coded by element category.",
+      "description": "<p>A beginner-friendly Periodic Table of Elements built using only HTML and CSS, laid out like the real table.</p><h3>What it does</h3><ul><li>Complete layout including the lanthanoids and actinoids</li><li>Atomic number, symbol and name for every element</li><li>Different colours for each element category</li><li>No JavaScript required</li></ul><h3>What I practised</h3><p>Semantic HTML structure, CSS grid layout and organising a large, data-heavy page cleanly.</p>",
+      "coverImage": {
+        "url": "https://res.cloudinary.com/js8eyyz5/image/upload/v1794646703/portfolio/projects/periodic-table.png",
+        "publicId": "portfolio/projects/periodic-table",
+        "alt": "Colour-coded periodic table of elements (screenshot)",
+        "caption": "",
+        "width": 1440,
+        "height": 960,
+        "resourceType": "image"
+      },
+      "images": [],
+      "techStack": [
+        "HTML",
+        "CSS"
+      ],
+      "githubUrl": "https://github.com/Hassan123advani/periodic_table",
+      "liveUrl": "",
+      "category": "Education",
+      "level": "Beginner",
+      "featured": false,
+      "status": "published",
+      "order": 6
+    },
+    {
+      "title": "Simple Calculator",
+      "slug": "simple-calculator",
+      "summary": "An interactive calculator for everyday arithmetic with a clean, friendly interface.",
+      "description": "<p>A simple and interactive calculator built with HTML, CSS and JavaScript.</p><h3>What it does</h3><ul><li>Addition, subtraction, multiplication and division</li><li>Percentages and brackets</li><li>Clear and reset</li></ul><h3>What I practised</h3><p>Handling button events in JavaScript, evaluating expressions safely and styling a compact UI with CSS.</p>",
+      "coverImage": {
+        "url": "https://res.cloudinary.com/js8eyyz5/image/upload/v1794646703/portfolio/projects/simple-calculator.png",
+        "publicId": "portfolio/projects/simple-calculator",
+        "alt": "Simple Calculator interface with keypad (screenshot of the live demo)",
+        "caption": "",
+        "width": 1440,
+        "height": 960,
+        "resourceType": "image"
+      },
+      "images": [],
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "githubUrl": "https://github.com/Hassan123advani/simple_calculater",
+      "liveUrl": "https://simplecalculater.vercel.app",
+      "category": "Utility",
+      "level": "Beginner",
+      "featured": false,
+      "status": "published",
+      "order": 7
     }
   ],
   "certificates": [

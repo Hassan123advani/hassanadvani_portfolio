@@ -18,7 +18,8 @@
     "resend-domain": "node scripts/resend-domain.js",
     "retry-inquiries": "node scripts/retry-inquiries.js",
     "verify-admin-login": "node scripts/verify-admin-login.js",
-    "seed-portfolio": "node scripts/seed-portfolio.js"
+    "seed-portfolio": "node scripts/seed-portfolio.js",
+    "seed-articles": "node scripts/seed-articles.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.6.0",

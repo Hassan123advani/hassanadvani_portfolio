@@ -81,9 +81,9 @@ test('blog search and tag filtering', async () => {
 test('sitemap excludes admin, drafts and scheduled posts', async () => {
   const res = await request(app).get('/sitemap.xml');
   assert.equal(res.status, 200);
-  assert.ok(res.text.includes('/blog/live'));
-  assert.ok(!res.text.includes('/blog/draft'));
-  assert.ok(!res.text.includes('/blog/later'));
+  assert.ok(res.text.includes('/writing/live'));
+  assert.ok(!res.text.includes('/writing/draft'));
+  assert.ok(!res.text.includes('/writing/later'));
   assert.ok(!res.text.includes('admin'));
 });
 
@@ -244,13 +244,13 @@ test('starter content from the original site validates and imports once', async 
   const res = await request(app).post('/api/admin/import-starter').set(as('tok-super')).send(starter);
   assert.equal(res.status, 200, JSON.stringify(res.body));
   assert.ok(res.body.created.includes('settings/profile'));
-  assert.ok(res.body.created.includes('projects (3)'));
-  assert.ok(res.body.created.includes('certificates (9)'));
+  assert.ok(res.body.created.includes(`projects (${starter.projects.length})`));
+  assert.ok(res.body.created.includes(`certificates (${starter.certificates.length})`));
   const again = await request(app).post('/api/admin/import-starter').set(as('tok-super')).send(starter);
   assert.equal(again.body.created.length, 0, 'second import changes nothing');
 
   const projects = await request(app).get('/api/public/projects');
-  assert.deepEqual(projects.body.items.map((p) => p.slug), ['focusflow', 'budgetwise', 'coursepilot']);
+  assert.deepEqual(projects.body.items.map((p) => p.slug), [...starter.projects].sort((a, b) => a.order - b.order).map((p) => p.slug));
   const certs = await request(app).get('/api/public/certificates');
   assert.equal(certs.body.items.length, 9);
   const settings = await request(app).get('/api/public/settings');

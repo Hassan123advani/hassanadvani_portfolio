@@ -5,7 +5,7 @@ import { services } from '../services/context.js';
 import { createInquiry, processInquiry } from '../services/inquiries.js';
 import { isConfigured } from '../config/env.js';
 import { getRepos } from '../services/github.js';
-import { contactSchema } from '../schemas.js';
+import { contactSchema, newsletterSchema } from '../schemas.js';
 import { ah, badRequest, notFound } from '../utils/errors.js';
 import { docToJSON, plain, toMillis } from '../utils/serialize.js';
 import { slugify } from '../utils/text.js';
@@ -27,7 +27,19 @@ async function publishedFrom(collection) {
 
 const cache = (res, seconds = 60) => res.set('Cache-Control', `public, max-age=${seconds}, stale-while-revalidate=300`);
 const stripAdminFields = ({ createdBy, updatedBy, ...rest }) => rest;
-const postSummary = ({ content, gallery, ...p }) => stripAdminFields(p);
+// Public article payloads never carry admin metadata or the raw view counter.
+const publicPost = ({ views, ...p }) => stripAdminFields(p);
+const postSummary = ({ content, gallery, ...p }) => publicPost(p);
+const newestFirst = (a, b) => toMillis(b.publishedAt) - toMillis(a.publishedAt);
+
+/** Categories an admin created for posts (scope post/both), in their saved order. */
+async function postCategories() {
+  const snap = await db().collection('categories').get();
+  return snap.docs
+    .map((d) => d.data())
+    .filter((c) => c.name && (!c.scope || c.scope === 'post' || c.scope === 'both'))
+    .map((c) => c.name);
+}
 
 /* ---------------- Settings ---------------- */
 r.get(
@@ -56,8 +68,9 @@ r.get(
     const category = String(req.query.category || '');
     const tag = String(req.query.tag || '');
 
-    let posts = (await publishedFrom('posts')).sort((a, b) => toMillis(b.publishedAt) - toMillis(a.publishedAt));
-    const categories = [...new Set(posts.map((p) => p.category).filter(Boolean))];
+    const [all, adminCategories] = await Promise.all([publishedFrom('posts'), postCategories()]);
+    let posts = all.sort(newestFirst);
+    const categories = [...new Set([...adminCategories, ...posts.map((p) => p.category).filter(Boolean)])];
     const tags = [...new Set(posts.flatMap((p) => p.tags || []))];
     const featured = posts.filter((p) => p.featured).slice(0, 3).map(postSummary);
 
@@ -78,9 +91,11 @@ r.get(
 r.get(
   '/posts/:slug',
   ah(async (req, res) => {
-    const posts = await publishedFrom('posts');
-    const post = posts.find((p) => p.slug === req.params.slug);
-    if (!post) throw notFound('Article not found');
+    const posts = (await publishedFrom('posts')).sort(newestFirst);
+    const idx = posts.findIndex((p) => p.slug === req.params.slug);
+    if (idx === -1) throw notFound('Article not found');
+    const post = posts[idx];
+    const pick = (p) => (p ? { slug: p.slug, title: p.title, category: p.category || '' } : null);
     const score = (p) =>
       (p.category && p.category === post.category ? 2 : 0) +
       (p.tags || []).filter((t) => (post.tags || []).includes(t)).length;
@@ -91,7 +106,86 @@ r.get(
       .slice(0, 3)
       .map(({ p }) => postSummary(p));
     cache(res);
-    res.json({ item: stripAdminFields(post), related });
+    // posts are newest first: "previous" is the older article, "next" the newer one.
+    res.json({ item: publicPost(post), related, prev: pick(posts[idx + 1]), next: pick(posts[idx - 1]) });
+  }),
+);
+
+/* ---------------- Article views ---------------- */
+const VIEW_WINDOW_MS = 6 * 60 * 60 * 1000;
+const viewLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 60, standardHeaders: 'draft-7', legacyHeaders: false });
+const dayKey = (d = new Date()) => d.toISOString().slice(0, 10);
+
+/**
+ * Count a view. The counter lives on the server only: a visitor (hashed IP + user agent) is
+ * counted at most once per article per 6-hour window, so refreshing does not inflate it.
+ * This is a page-view count, not a unique-visitor count.
+ */
+r.post(
+  '/posts/:slug/view',
+  viewLimiter,
+  ah(async (req, res) => {
+    const slug = String(req.params.slug).slice(0, 120);
+    const snap = await db().collection('posts').where('slug', '==', slug).limit(1).get();
+    const doc = snap.docs[0];
+    if (!doc || !isPublic(doc.data())) throw notFound('Article not found');
+
+    const now = new Date();
+    const bucket = Math.floor(now.getTime() / VIEW_WINDOW_MS);
+    const visitor = createHash('sha256')
+      .update(`${env.ipHashSalt}:${req.ip}:${String(req.get('user-agent') || '').slice(0, 200)}:${doc.id}:${bucket}`)
+      .digest('hex')
+      .slice(0, 40);
+    const viewRef = db().collection('postViews').doc(visitor);
+    const postRef = db().collection('posts').doc(doc.id);
+    const dayRef = db().collection('article_analytics').doc(`${doc.id}_${dayKey(now)}`);
+
+    const counted = await db().runTransaction(async (tx) => {
+      const [seen, post, day] = await Promise.all([tx.get(viewRef), tx.get(postRef), tx.get(dayRef)]);
+      if (seen.exists || !post.exists) return false;
+      // expiresAt lets a Firestore TTL policy clean these markers up automatically.
+      tx.set(viewRef, { postId: doc.id, createdAt: now, expiresAt: new Date(now.getTime() + 2 * VIEW_WINDOW_MS) });
+      tx.update(postRef, { views: (post.data().views || 0) + 1 });
+      tx.set(dayRef, { postId: doc.id, date: dayKey(now), views: (day.exists ? day.data().views || 0 : 0) + 1, updatedAt: now });
+      return true;
+    });
+    res.set('Cache-Control', 'no-store').json({ ok: true, counted });
+  }),
+);
+
+/* ---------------- Newsletter ---------------- */
+const newsletterLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: 10,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  handler: (_req, res) =>
+    res.status(429).json({ error: { code: 'RATE_LIMITED', message: 'Too many attempts. Please try again later.' } }),
+});
+
+r.post(
+  '/newsletter',
+  newsletterLimiter,
+  ah(async (req, res) => {
+    const input = newsletterSchema.parse(req.body);
+    if (input.website) return res.status(201).json({ ok: true, status: 'subscribed' }); // honeypot: bots learn nothing
+
+    // The document id is a hash of the address, so the same email can never be stored twice.
+    const id = createHash('sha256').update(input.email).digest('hex').slice(0, 40);
+    const ref = db().collection('newsletter_subscribers').doc(id);
+    const created = await db().runTransaction(async (tx) => {
+      const existing = await tx.get(ref);
+      if (existing.exists) return false;
+      tx.set(ref, {
+        email: input.email,
+        source: input.source || 'writing',
+        status: 'active',
+        createdAt: new Date(),
+        ipHash: createHash('sha256').update(`${env.ipHashSalt}:${req.ip}`).digest('hex').slice(0, 24),
+      });
+      return true;
+    });
+    res.status(created ? 201 : 200).json({ ok: true, status: created ? 'subscribed' : 'already_subscribed' });
   }),
 );
 

@@ -13,6 +13,8 @@ export const loaders = {
   testimonials: () => api.get('/public/testimonials').then((r) => r.items),
   posts: (params) => api.get(`/public/posts?${new URLSearchParams(params)}`),
   post: (slug) => api.get(`/public/posts/${encodeURIComponent(slug)}`),
+  postView: (slug) => api.post(`/public/posts/${encodeURIComponent(slug)}/view`, {}),
+  subscribe: (body) => api.post('/public/newsletter', body),
   github: async () => {
     try {
       return await api.get('/public/github');

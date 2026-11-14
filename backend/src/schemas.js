@@ -28,6 +28,7 @@ const tagList = z.array(str(50, 1)).max(20).default([]);
 export const postSchema = z.object({
   title: str(200, 1),
   slug: optStr(100),
+  subtitle: optStr(300),
   excerpt: optStr(400),
   content: z.string().max(400_000).default(''),
   coverImage: mediaRef.nullable().default(null),
@@ -37,10 +38,19 @@ export const postSchema = z.object({
   tags: tagList,
   seoTitle: optStr(120),
   seoDescription: optStr(300),
+  seoKeywords: z.array(str(60, 1)).max(15).default([]),
+  // 0 = calculate from the content; otherwise the author's own estimate in minutes.
+  readingTimeOverride: z.number().int().min(0).max(240).default(0),
   featured: z.boolean().default(false),
   status,
   publishedAt: isoDate.nullable().optional().default(null),
   author: optStr(100),
+});
+
+export const newsletterSchema = z.object({
+  email: z.string().trim().toLowerCase().max(254).email('Please enter a valid email address.'),
+  source: optStr(60),
+  website: optStr(200), // honeypot: real visitors never fill this in
 });
 
 export const projectSchema = z.object({

@@ -6,14 +6,14 @@ import { escapeHtml } from '../utils/text.js';
 import { isPublic } from './public.js';
 
 const r = Router();
-const STATIC = ['/', '/about', '/projects', '/blog', '/certificates', '/github', '/services', '/contact'];
+const STATIC = ['/', '/about', '/projects', '/writing', '/certificates', '/github', '/services', '/contact'];
 
 /** Public pages only. Admin routes are deliberately never listed. */
 r.get('/sitemap.xml', async (_req, res) => {
   const urls = STATIC.map((p) => ({ loc: `${env.siteUrl}${p}` }));
   try {
     const now = Date.now();
-    for (const [col, base] of [['posts', '/blog'], ['projects', '/projects']]) {
+    for (const [col, base] of [['posts', '/writing'], ['projects', '/projects']]) {
       const snap = await services.db().collection(col).where('status', '==', 'published').get();
       snap.docs
         .map((d) => d.data())

@@ -12,6 +12,7 @@ import sitemapRoutes from './routes/sitemap.js';
 import adminRoutes from './routes/admins.js';
 import mediaRoutes from './routes/media.js';
 import miscRoutes from './routes/adminMisc.js';
+import writingRoutes from './routes/writing.js';
 import {
   categorySchema,
   certificateSchema,
@@ -61,6 +62,7 @@ export function createApp() {
   admin.use(miscRoutes);
   admin.use('/admins', adminRoutes);
   admin.use('/media', mediaRoutes);
+  admin.use(writingRoutes);
   admin.use(
     '/posts',
     crudRouter({
@@ -70,9 +72,10 @@ export function createApp() {
       label: 'Article',
       slugFrom: 'title',
       publishable: true,
+      preserve: ['views'],
       prepare: (d) => {
         const content = sanitizeRichText(d.content);
-        return { ...d, content, readingTime: readingTime(content), excerpt: d.excerpt || excerptFrom(content) };
+        return { ...d, content, readingTime: d.readingTimeOverride || readingTime(content), excerpt: d.excerpt || excerptFrom(content) };
       },
     }),
   );

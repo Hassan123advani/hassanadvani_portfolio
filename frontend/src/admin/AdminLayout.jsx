@@ -10,7 +10,7 @@ const NAV = [
   {
     group: 'Content',
     items: [
-      { to: 'posts', label: 'Blog posts', icon: 'book', perm: 'blog' },
+      { to: 'writing', label: 'Writing', icon: 'book', perm: 'blog' },
       { to: 'projects', label: 'Projects', icon: 'code', perm: 'projects' },
       { to: 'certificates', label: 'Certificates', icon: 'award', perm: 'certificates' },
       { to: 'testimonials', label: 'Testimonials', icon: 'quote', perm: 'testimonials' },

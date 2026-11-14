@@ -271,7 +271,7 @@ function LatestWriting() {
           kicker="Writing"
           title="Notes from the build"
           action={
-            <Link to="/blog" className="link-arrow">
+            <Link to="/writing" className="link-arrow">
               All articles <Icon name="arrowRight" size={15} />
             </Link>
           }
