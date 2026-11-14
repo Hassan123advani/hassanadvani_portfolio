@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=block" rel="stylesheet">
+<style>
+  :root { --bg:#0c0d10; --s1:#15171d; --s2:#1c1f27; --line:rgba(236,234,226,.10); --ink:#eceae2; --muted:#8d8f95; --lime:#d6ff5c; --amber:#ffb35c; --blue:#8fd6ff; --violet:#b9a6ff; --mint:#9be3c1; --pink:#ff8fa3; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1600px; height:840px; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter, sans-serif; }
+  .stage { position:relative; width:1600px; height:840px; overflow:hidden; }
+  .grid { position:absolute; inset:0; background-image:linear-gradient(rgba(236,234,226,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(236,234,226,.045) 1px,transparent 1px); background-size:56px 56px; mask-image:radial-gradient(ellipse at 60% 45%,#000 30%,transparent 80%); }
+  .glow { position:absolute; border-radius:50%; filter:blur(20px); }
+  .g1 { width:900px; height:900px; right:-180px; top:-260px; background:radial-gradient(closest-side,rgba(214,255,92,.22),transparent 70%); }
+  .g2 { width:700px; height:700px; left:-260px; bottom:-380px; background:radial-gradient(closest-side,rgba(255,179,92,.12),transparent 70%); }
+  .tag { position:absolute; left:72px; top:64px; display:flex; align-items:center; gap:12px; font-family:'JetBrains Mono'; font-size:22px; letter-spacing:.16em; text-transform:uppercase; color:var(--lime); }
+  .tag::before { content:''; width:12px; height:12px; border-radius:3px; background:var(--lime); box-shadow:0 0 18px rgba(214,255,92,.8); }
+  .brand { position:absolute; left:72px; bottom:60px; font-family:'Bricolage Grotesque'; font-weight:700; font-size:30px; letter-spacing:-.02em; color:var(--ink); opacity:.9; }
+  .brand span { color:var(--lime); }
+  .win { position:absolute; background:linear-gradient(180deg,rgba(28,31,39,.96),rgba(18,20,25,.96)); border:1px solid rgba(236,234,226,.14); border-radius:22px; box-shadow:0 40px 90px -30px rgba(0,0,0,.85),0 0 0 1px rgba(0,0,0,.4); overflow:hidden; }
+  .bar { display:flex; align-items:center; gap:9px; height:50px; padding:0 20px; border-bottom:1px solid var(--line); background:rgba(12,13,16,.6); font-family:'JetBrains Mono'; font-size:17px; color:var(--muted); }
+  .dot { width:13px; height:13px; border-radius:50%; background:#3a3d46; }
+  .dot:nth-child(1){background:#ff7a6b}.dot:nth-child(2){background:#ffd166}.dot:nth-child(3){background:#7fe0a8}
+  .bar b { margin-left:12px; font-weight:400; }
+  pre { font-family:'JetBrains Mono'; font-size:23px; line-height:1.62; padding:26px 30px; color:#e6e5dd; white-space:pre; }
+  .k{color:var(--lime)} .s{color:#ffc883} .n{color:#ff9e8a} .f{color:var(--blue)} .t{color:var(--violet)} .c{color:#6f737c;font-style:italic} .m{color:var(--amber)} .a{color:var(--mint)} .p{color:var(--pink)}
+  .chip { position:absolute; display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; border:1px solid rgba(236,234,226,.16); background:rgba(21,23,29,.92); font-family:'JetBrains Mono'; font-size:22px; color:var(--ink); box-shadow:0 20px 50px -24px rgba(0,0,0,.9); }
+  .chip.lime { background:var(--lime); color:#12140a; border-color:transparent; font-weight:600; box-shadow:0 16px 50px -18px rgba(214,255,92,.75); }
+  .card { position:absolute; padding:26px 28px; border-radius:20px; border:1px solid rgba(236,234,226,.14); background:rgba(21,23,29,.95); box-shadow:0 30px 70px -30px rgba(0,0,0,.9); }
+  .lbl { font-family:'JetBrains Mono'; font-size:16px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .big { font-family:'Bricolage Grotesque'; font-weight:700; font-size:40px; letter-spacing:-.02em; }
+  svg.wire { position:absolute; inset:0; overflow:visible; }
+  section[data-v] { display:none; position:absolute; inset:0; transform:scale(.84) translate(0, 28px); transform-origin:50% 50%; }
+  .tag, .brand { display:none !important; } body[data-v="journey"] [data-v="journey"], body[data-v="c"] [data-v="c"], body[data-v="firebase"] [data-v="firebase"], body[data-v="cloudinary"] [data-v="cloudinary"], body[data-v="ai"] [data-v="ai"] { display:block; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="grid"></div><div class="glow g1"></div><div class="glow g2"></div>
+
+  <!-- ===================== My Journey ===================== -->
+  <section data-v="journey">
+    <div class="tag">My Journey</div>
+    <svg class="wire" viewBox="0 0 1600 840"><path d="M140 640 C 420 640, 470 470, 720 470 S 1040 300, 1460 230" fill="none" stroke="rgba(214,255,92,.55)" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/></svg>
+    <div class="card" style="left:110px;top:560px;width:300px"><div class="lbl">School</div><div class="big" style="font-size:30px">Iqra Huffaz<br>Boys School</div></div>
+    <div class="card" style="left:560px;top:380px;width:320px"><div class="lbl">College</div><div class="big" style="font-size:30px">Fatmiyah<br>Boys College</div></div>
+    <div class="card" style="left:1010px;top:150px;width:470px;border-color:rgba(214,255,92,.55);box-shadow:0 0 0 1px rgba(214,255,92,.25),0 40px 90px -30px rgba(214,255,92,.35)"><div class="lbl" style="color:var(--lime)">Now · 2026 — 2030</div><div class="big">BSCS at GU Tech</div><div style="margin-top:14px;color:var(--muted);font-size:21px">Programming · Data structures · Algorithms · Databases</div></div>
+    <span class="chip lime" style="left:1080px;top:470px">&lt;html&gt;</span>
+    <span class="chip" style="left:1260px;top:470px">CSS</span>
+    <span class="chip" style="left:1380px;top:560px">JavaScript</span>
+    <span class="chip" style="left:1060px;top:575px">Python</span>
+    <span class="chip" style="left:1230px;top:650px">C / C++</span>
+    <div class="brand">Hassan<span>.dev</span> / writing</div>
+  </section>
+
+  <!-- ===================== C Programming ===================== -->
+  <section data-v="c">
+    <div class="tag">C Programming</div>
+    <div class="win" style="left:600px;top:80px;width:880px;height:640px;transform:rotate(-2deg)">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>sum.c</b></div>
+<pre><span class="m">#include</span> <span class="s">&lt;stdio.h&gt;</span>
+
+<span class="t">int</span> <span class="f">sum_to</span>(<span class="t">int</span> n) {
+    <span class="t">int</span> total = <span class="n">0</span>;
+    <span class="k">for</span> (<span class="t">int</span> i = <span class="n">1</span>; i &lt;= n; i++)
+        total += i;
+    <span class="k">return</span> total;
+}
+
+<span class="t">int</span> <span class="f">main</span>(<span class="t">void</span>) {
+    <span class="f">printf</span>(<span class="s">"%d\n"</span>, <span class="f">sum_to</span>(<span class="n">10</span>));
+}</pre>
+    </div>
+    <div class="win" style="left:110px;top:470px;width:440px;height:170px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>terminal</b></div>
+<pre style="font-size:20px;padding:20px 26px"><span class="c">$</span> gcc sum.c -o sum && ./sum
+<span class="k">55</span></pre>
+    </div>
+    <div class="card" style="left:110px;top:220px;width:440px">
+      <div class="lbl">Pointer</div>
+      <div style="display:flex;align-items:center;gap:18px;font-family:'JetBrains Mono';font-size:24px">
+        <div style="padding:12px 16px;border:1px solid var(--lime);border-radius:12px;color:var(--lime)">*p</div>
+        <svg width="70" height="20"><path d="M0 10 H58" stroke="#d6ff5c" stroke-width="3"/><path d="M52 3 L66 10 L52 17" fill="none" stroke="#d6ff5c" stroke-width="3"/></svg>
+        <div style="padding:12px 16px;border:1px solid rgba(236,234,226,.25);border-radius:12px;white-space:nowrap">x = 20</div>
+      </div>
+    </div>
+    <div class="brand">Hassan<span>.dev</span> / writing</div>
+  </section>
+
+  <!-- ===================== Firebase ===================== -->
+  <section data-v="firebase">
+    <div class="tag">Firebase</div>
+    <svg class="wire" viewBox="0 0 1600 840">
+      <path d="M430 410 H600" stroke="rgba(214,255,92,.7)" stroke-width="4" stroke-dasharray="10 10"/>
+      <path d="M930 410 H1100" stroke="rgba(214,255,92,.7)" stroke-width="4" stroke-dasharray="10 10"/>
+      <path d="M590 400 L604 410 L590 420" fill="none" stroke="#d6ff5c" stroke-width="4"/>
+      <path d="M1090 400 L1104 410 L1090 420" fill="none" stroke="#d6ff5c" stroke-width="4"/>
+    </svg>
+    <div class="card" style="left:110px;top:320px;width:320px;text-align:center">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#eceae2" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg>
+      <div class="big" style="font-size:30px;margin-top:8px">Browser</div><div style="color:var(--muted);font-size:19px;margin-top:6px">reads published only</div>
+    </div>
+    <div class="card" style="left:600px;top:290px;width:330px;text-align:center;border-color:rgba(214,255,92,.55);box-shadow:0 0 0 1px rgba(214,255,92,.2),0 40px 90px -30px rgba(214,255,92,.35)">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#d6ff5c" stroke-width="1.6"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+      <div class="big" style="font-size:30px;margin-top:8px">Server API</div><div style="color:var(--muted);font-size:19px;margin-top:6px">verifies token<br>+ permissions</div>
+    </div>
+    <div class="card" style="left:1100px;top:320px;width:360px;text-align:center">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ffb35c" stroke-width="1.6"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6M4 11.5v6c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-6"/></svg>
+      <div class="big" style="font-size:30px;margin-top:8px">Firestore</div><div style="color:var(--muted);font-size:19px;margin-top:6px">posts · projects · …</div>
+    </div>
+    <div class="win" style="left:560px;top:560px;width:640px;height:200px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>firestore.rules</b></div>
+<pre style="font-size:21px;padding:20px 28px"><span class="k">match</span> /posts/{id} {
+  <span class="k">allow</span> read: <span class="k">if</span> <span class="f">isLive</span>() || <span class="f">can</span>(<span class="s">'blog'</span>);
+  <span class="k">allow</span> write: <span class="k">if</span> <span class="n">false</span>;
+}</pre>
+    </div>
+    <div class="brand">Hassan<span>.dev</span> / writing</div>
+  </section>
+
+  <!-- ===================== Cloudinary ===================== -->
+  <section data-v="cloudinary">
+    <div class="tag">Technology</div>
+    <div style="position:absolute;left:110px;top:200px;width:460px;height:400px;border-radius:22px;overflow:hidden;border:1px solid rgba(236,234,226,.16);box-shadow:0 40px 90px -30px rgba(0,0,0,.9)">
+      <svg width="460" height="400" viewBox="0 0 460 400"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3550"/><stop offset="1" stop-color="#e9a36b"/></linearGradient></defs><rect width="460" height="400" fill="url(#sky)"/><circle cx="330" cy="150" r="46" fill="#ffd9a0"/><path d="M0 300 L120 190 L210 270 L300 180 L460 320 V400 H0Z" fill="#1d2433"/><path d="M0 340 L150 260 L280 330 L460 280 V400 H0Z" fill="#11151e"/></svg>
+      <div style="position:absolute;left:16px;bottom:16px;padding:8px 14px;border-radius:10px;background:rgba(12,13,16,.8);font-family:'JetBrains Mono';font-size:18px;color:var(--ink)">photo.jpg · 4.8 MB</div>
+    </div>
+    <svg class="wire" viewBox="0 0 1600 840"><path d="M590 400 H700" stroke="#d6ff5c" stroke-width="4"/><path d="M690 390 L704 400 L690 410" fill="none" stroke="#d6ff5c" stroke-width="4"/></svg>
+    <span class="chip lime" style="left:730px;top:250px">f_auto</span>
+    <span class="chip lime" style="left:730px;top:330px">q_auto</span>
+    <span class="chip" style="left:730px;top:410px">w_700,h_420</span>
+    <span class="chip" style="left:730px;top:490px">c_fill</span>
+    <svg class="wire" viewBox="0 0 1600 840"><path d="M1020 400 H1100" stroke="#d6ff5c" stroke-width="4"/><path d="M1090 390 L1104 400 L1090 410" fill="none" stroke="#d6ff5c" stroke-width="4"/></svg>
+    <div style="position:absolute;left:1130px;top:190px;width:340px;height:220px;border-radius:14px;border:2px solid rgba(236,234,226,.22);overflow:hidden"><svg width="340" height="220" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid slice"><rect width="460" height="300" fill="#2a3550"/><circle cx="330" cy="110" r="36" fill="#ffd9a0"/><path d="M0 230 L120 140 L210 210 L300 130 L460 250 V300 H0Z" fill="#1d2433"/></svg></div>
+    <div style="position:absolute;left:1130px;top:440px;width:200px;height:300px;border-radius:26px;border:2px solid rgba(236,234,226,.22);overflow:hidden"><svg width="200" height="300" viewBox="0 0 200 300" preserveAspectRatio="xMidYMid slice"><rect width="200" height="300" fill="#384463"/><circle cx="140" cy="90" r="28" fill="#ffd9a0"/><path d="M0 220 L60 150 L110 200 L160 140 L200 180 V300 H0Z" fill="#1d2433"/></svg></div>
+    <div class="card" style="left:1350px;top:470px;width:200px;padding:20px"><div class="lbl" style="margin:0 0 6px">Delivered as</div><div class="big" style="color:var(--lime);font-size:32px;line-height:1.1">WebP<br>/ AVIF</div><div style="color:var(--muted);font-size:16px;margin-top:6px">sized per device</div></div>
+    <div class="brand">Hassan<span>.dev</span> / writing</div>
+  </section>
+
+  <!-- ===================== AI ===================== -->
+  <section data-v="ai">
+    <div class="tag">Artificial Intelligence</div>
+    <div class="win" style="left:420px;top:170px;width:1060px;height:500px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>assistant</b></div>
+      <div style="padding:30px 34px;display:flex;flex-direction:column;gap:22px">
+        <div style="align-self:flex-end;max-width:640px;padding:18px 22px;border-radius:18px 18px 4px 18px;background:#262a33;font-size:24px;line-height:1.45">This function should return the sum of an array, but it returns <span style="font-family:'JetBrains Mono';color:var(--amber)">NaN</span> for [1, 2, 3]. Explain why.</div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex:none;width:46px;height:46px;border-radius:12px;background:var(--lime);display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="#12140a"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg></div>
+          <div style="max-width:800px">
+            <div style="font-size:24px;line-height:1.45;color:var(--ink-2,#c0bfb6)"><b style="color:var(--ink)">total</b> starts as <span style="font-family:'JetBrains Mono';color:var(--amber)">undefined</span>, and undefined + 1 is NaN. Start it at 0:</div>
+<pre style="margin-top:16px;padding:18px 22px;border-radius:14px;background:#0d0f13;border:1px solid var(--line);font-size:21px"><span class="k">let</span> total = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">const</span> n <span class="k">of</span> nums) total += n;</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="chip lime" style="left:110px;top:250px">Think first</span>
+    <span class="chip" style="left:110px;top:340px">Ask “why?”</span>
+    <span class="chip" style="left:110px;top:430px">Test it</span>
+    <span class="chip" style="left:110px;top:520px">Own the code</span>
+    <div class="brand">Hassan<span>.dev</span> / writing</div>
+  </section>
+</div>
+<script>document.body.dataset.v = new URLSearchParams(location.search).get('v') || 'journey';</script>
+</body>
+</html>

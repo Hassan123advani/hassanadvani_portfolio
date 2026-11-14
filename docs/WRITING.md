@@ -25,8 +25,13 @@ the subscriber list (email addresses) needs `messages`.
 Views are page views counted once per visitor (hashed IP + user agent) per article per 6 hours — not unique visitors.
 
 ## Setup still to do
-- Deploy the updated rules: `firebase deploy --only firestore:rules`.
+- Firestore rules: deploy changes with `firebase deploy --only firestore:rules` (use the project owner account).
 - Optional: add a Firestore TTL policy on `postViews.expiresAt` so old de-duplication markers are deleted automatically.
 - Newsletter emails are not sent automatically. Sign-ups are stored; export them as CSV from the dashboard.
   Automated sending needs a verified Resend domain (see `docs/CONTACT_AUTOMATION.md`).
 - Starter drafts: `npm run seed-articles` in `backend/` (create-only, safe to re-run).
+
+## Article covers
+The starter article covers are designed in `scripts/covers/cover.html` (one HTML page, `?v=journey|c|firebase|cloudinary|ai`).
+Open it over HTTP at 1600×840, screenshot it, and upload the PNG to Cloudinary `portfolio/posts/<slug>-cover`
+(with `invalidate: true` when replacing, so the CDN drops old resized copies). Uploaded covers are listed in the Media library.
