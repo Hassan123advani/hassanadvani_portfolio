@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Seo from '../components/ui/Seo.jsx';
 import Icon, { socialIcon } from '../components/ui/Icon.jsx';
 import Reveal from '../components/ui/Reveal.jsx';
@@ -25,15 +24,9 @@ export default function About() {
               </p>
             ))}
             <div className="hero__actions">
-              {profile.resume?.url ? (
-                <a href={profile.resume.url} className="btn btn--primary" target="_blank" rel="noopener noreferrer" download>
-                  <Icon name="download" size={16} /> Download résumé
-                </a>
-              ) : (
-                <Link to="/contact?type=Something%20else" className="btn btn--primary">
-                  Request my résumé <Icon name="arrow" size={16} />
-                </Link>
-              )}
+              <a href={profile.resume?.url || '/resume.pdf'} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                <Icon name="download" size={16} /> View résumé
+              </a>
               {profile.socials
                 .filter((s) => !s.url.startsWith('mailto'))
                 .map((s) => (
