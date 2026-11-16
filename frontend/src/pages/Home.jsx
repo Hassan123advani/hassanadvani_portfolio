@@ -47,8 +47,8 @@ function Hero() {
             <Link to="/contact" className="btn btn--ghost">
               Let’s talk
             </Link>
-            <a href={profile.resume?.url || '/resume.pdf'} className="btn btn--text" target="_blank" rel="noopener noreferrer">
-              <Icon name="download" size={16} /> Résumé
+            <a href={profile.resume?.url || '/resume.pdf'} className="btn btn--ghost" target="_blank" rel="noopener noreferrer">
+              <Icon name="download" size={16} /> View Résumé
             </a>
           </div>
           <ul className="hero__meta">
