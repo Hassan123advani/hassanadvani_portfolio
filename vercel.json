@@ -11,7 +11,7 @@
     { "source": "/api/:path*", "destination": "/api" },
     { "source": "/sitemap.xml", "destination": "/api" },
     {
-      "source": "/((?!api/|api$|assets/|video/|demos/|favicon\\.svg|robots\\.txt|sitemap\\.xml).*)",
+      "source": "/((?!api/|api$|assets/|video/|demos/|favicon\\.svg|resume\\.pdf|robots\\.txt|sitemap\\.xml).*)",
       "destination": "/index.html"
     }
   ],
